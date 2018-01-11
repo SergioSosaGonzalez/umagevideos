@@ -5,8 +5,8 @@ return new \Phalcon\Config(array(
             'adapter'     => 'Mysql',
             'host'        => 'localhost',
             'username'    => 'root',
-            'password'    => 'alexander',
-            'dbname'      => 'cd_umaeeS',
+            'password'    => 'admin',
+            'dbname'      => 'cd_umaevideos',
         ),
         "mongo"=>array(
             'host'        => '127.0.0.1',

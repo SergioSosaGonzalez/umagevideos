@@ -19,13 +19,9 @@
     <link rel="author" href="https://plus.google.com/u/0/101316577346995540804/posts"/>
 
     <!-- CSS INCLUDE -->
-    
-        <?= $this->assets->outputCss('functions') ?>
-    
-    <link rel="stylesheet" href="<?= $this->url->get('dash/css/bootstrap/bootstrap.min.css') ?>">
-    <link rel="stylesheet" type="text/css" id="theme" href="<?= $this->url->get('dash/css/theme-login.css') ?>"/>
-    <link rel="stylesheet" type="text/css" id="theme" href="<?= $this->url->get('dash/css/fontawesome/font-awesome.min.css') ?>"/>
-    <link rel="stylesheet" href="<?= $this->url->get('front/assets/css/formValidation.min.css') ?>" media="screen">
+    <link rel="stylesheet" href="<?= $this->url->get('dash/css/bootstrap.min.css') ?>">
+    <link rel="stylesheet" href="<?= $this->url->get('dash/css/formValidation.min.css') ?>" media="screen">
+    <link rel="stylesheet" href="<?= $this->url->get('dash/css/signin.css') ?>" media="screen">
     <!-- EOF CSS INCLUDE -->
 </head>
 <body>
@@ -33,5 +29,6 @@
     
         <?= $this->assets->outputJs('JsIndexLogin') ?>
     
+
 </body>
 </html>

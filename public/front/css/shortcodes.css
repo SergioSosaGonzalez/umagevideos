@@ -1,0 +1,747 @@
+/*
+Theme Name: Enfant
+Theme URI: http://www.zoutula.com/
+Author: Zoutula
+*/
+
+
+/* 1.0 General Styling */
+.ztl-radius {
+    border-radius: 5px 5px 5px 5px;
+}
+
+.ztl-radius-top {
+    border-radius: 5px 5px 0px 0px;
+}
+
+.ztl-radius-bottom {
+    border-radius: 0px 0px 5px 5px;
+}
+
+.ztl-radius-left {
+    border-radius: 5px 0px 0px 5px;
+}
+
+.ztl-radius-right {
+    border-radius: 0px 5px 5px 0px;
+}
+
+.ztl-radius-circle {
+    border-radius: 100%;
+}
+
+/* 2.0 - Divider: Params (color, align) */
+/* Start divider*/
+.ztl-divider {
+    float: left;
+    width: 100%;
+}
+
+.ztl-divider > span {
+    display: block;
+    margin: auto;
+} /* default color */
+.ztl-divider.left > span {
+    float: left;
+}
+
+.ztl-divider.right > span {
+    float: right;
+}
+
+.ztl-divider.center > span.circle {
+    margin: auto !important;
+}
+
+.ztl-divider.primary > span > span:first-child {
+    display: block;
+    width: 32px;
+    height: 2px;
+    margin-top: 5px;
+    margin-left: -32px;
+}
+
+.ztl-divider.primary > span > span:last-child {
+    display: block;
+    width: 32px;
+    height: 2px;
+    margin-top: -2px;
+    margin-left: 14px;
+}
+
+.ztl-divider.primary > span.circle {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    margin: 0 32px;
+}
+
+.ztl-divider.secondary > span {
+    width: 40px;
+    height: 2px;
+}
+
+.ztl-divider.secondary > span > span {
+    display: none;
+}
+/* End divider*/
+
+/* 3.0 - Announcement: Params (icon_color, icon_background_color, title, subtitle, color, button_title, button_url, button_style) */
+.ztl-announcement {
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.ztl-announcement .ztl-icon {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 56px;
+    line-height: 112px;
+}
+
+.ztl-announcement .ztl-icon [class^="flaticon-"]:before,
+.ztl-announcement .ztl-icon [class*=" flaticon-"]:before,
+.ztl-announcement .ztl-icon [class^="flaticon-"]:after,
+.ztl-announcement .ztl-icon [class*=" flaticon-"]:after {
+    font-size: 56px;
+}
+
+.ztl-announcement .content {
+    float: left;
+    padding: 0px 25px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.ztl-announcement .ztl-action {
+    vertical-align: middle !important;
+    text-align: right;
+}
+
+.ztl-announcement .row {
+    margin: 0px;
+}
+
+.ztl-announcement .ztl-col {
+    padding: 0px;
+}
+
+/* 4.0 Counter Params (icon, icon_color, description, color, number) */
+.ztl-counter .ztl-icon [class^="flaticon-"]:before,
+.ztl-counter .ztl-icon [class*=" flaticon-"]:before,
+.ztl-counter .ztl-icon [class^="flaticon-"]:after,
+.ztl-counter .ztl-icon [class*=" flaticon-"]:after {
+    font-size: 56px;
+}
+
+.ztl-counter .ztl-icon {
+    position: relative;
+    margin-right: 20px;
+    min-width: 60px;
+    text-align: right;
+}
+
+.ztl-counter .counter {
+    font-size: 60px;
+    margin-bottom: 10px;
+    line-height: 84px;
+    min-width: 130px;
+    display: block;
+}
+
+.ztl-counter .description {
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: -15px;
+}
+
+.ztl-counter>div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* 5.0 Package (title, subtitle, bullet, price, period) */
+.ztl-package {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.ztl-package-circle {
+    width: 112px;
+    height: 112px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    border-radius: 100%;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    margin-top: 10px;
+}
+
+.ztl-package-circle .period {
+    font-size: 13px;
+    opacity: 0.75;
+    letter-spacing: 1px;
+}
+
+.ztl-package-circle h3 {
+    line-height: 1 !important;
+}
+
+.ztl-package sup {
+    line-height: 1;
+    vertical-align: text-top;
+    font-size: 50%;
+}
+
+.ztl-package-description {
+    margin-left: 20px;
+}
+
+
+/* 6.0 Countdown Params(text_color)*/
+.ztl-countdown {
+    width: 100%;
+    overflow: auto;
+}
+
+.ztl-countdown .grid {
+    float: left;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.ztl-countdown .grid h1 {
+    line-height: 100px;
+    font-size: 60px;
+}
+
+.ztl-countdown .grid:last-child h1 {
+    line-height: 100px;
+    font-size: 80px;
+}
+
+
+
+/* 8.0 - Subscriber: Params (icon_color, icon_background_color, title, subtitle, color, button_title, button_url, button_style) */
+.ztl-subscriber {
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.ztl-subscriber .ztl-icon {
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 56px;
+    line-height: 112px;
+}
+
+.ztl-subscriber .ztl-icon [class^="flaticon-"]:before,
+.ztl-subscriber .ztl-icon [class*=" flaticon-"]:before,
+.ztl-subscriber .ztl-icon [class^="flaticon-"]:after,
+.ztl-subscriber .ztl-icon [class*=" flaticon-"]:after {
+    font-size: 56px;
+}
+
+.ztl-subscriber .row {
+    margin: 0;
+}
+
+.ztl-subscriber .ztl-col {
+    padding: 0px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.ztl-subscriber .content {
+    max-width: 600px;
+    width: 100%;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding-left: 25px;
+    margin: 0 auto;
+}
+
+.ztl-subscribe-form {
+    position: relative;
+    margin-top: 5px;
+}
+
+.ztl-subscribe-form .ztl-subscribe-button {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+}
+
+.ztl-subscribe-form .ztl-input {
+    padding: 14px 140px 14px 20px !important;
+    border-radius: 28px !important;
+    border: none;
+    font-size: 14px;
+    line-height: 18px;
+    width: 100%;
+}
+
+.ztl-subscriber .line-1 {
+    text-align: center;
+}
+
+.ztl-subscriber .line-2 p {
+    margin: 20px;
+    font-size: 14px;
+}
+
+
+/* 9.0 - Steps:  */
+.ztl-steps-carousel {
+    overflow: hidden;
+}
+
+.ztl-steps-carousel .owl-item {
+    float: left;
+}
+
+.ztl-steps-carousel .item-step {
+    position: relative;
+    text-align: center;
+    padding: 0 30px;
+}
+
+.ztl-steps-carousel .item-step:before {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    content: "";
+    top: 40px;
+    left: 0;
+    border-bottom: 2px dashed #c7c7c7;
+    z-index: -1;
+}
+
+.ztl-steps-carousel .number-step {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    line-height: 80px;
+    text-align: center;
+    font-size: 30px;
+    margin: 0 auto;
+}
+
+.ztl-steps-carousel .item-step .title {
+    margin-top: 20px;
+}
+
+.ztl-steps-carousel .owl-nav.disabled {
+    display: none;
+}
+
+.ztl-steps-carousel .owl-nav {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-top: 40px;
+}
+
+.ztl-steps-carousel .owl-next, .ztl-steps-carousel .owl-prev {
+    width: auto;
+}
+
+.ztl-steps-carousel .owl-prev, .ztl-steps-carousel .owl-next {
+    padding: 5px 10px;
+    border-radius: 28px;
+    border: solid 2px;
+    font-size: 12px;
+    line-height: 16px;
+    transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    margin: 0 4px;
+    min-width: 60px;
+}
+
+.ztl-steps-carousel .owl-prev {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    text-align: right;
+}
+
+.ztl-steps-carousel .owl-next {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    text-align: left;
+}
+
+/* 10.0 - Pricing plan */
+.ztl-pricing-plan {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 28px;
+}
+
+.ztl-pricing-plan {
+    padding: 0;
+}
+
+.ztl-pricing-plan .plan-button {
+    text-align: center;
+}
+
+.ztl-pricing-plan .plan-button a {
+    margin-bottom: 45px;
+}
+
+.ztl-pricing-plan.plan-primary .plan-header {
+    padding: 35px 40px 25px;
+    margin-bottom: 55px;
+    display: block;
+    text-align: center;
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+}
+
+.ztl-pricing-plan.plan-primary .plan-price-wrapper {
+    background: #ffffff;
+    text-align: center;
+    width: 120px;
+    height: 120px;
+    display: block;
+    border: 2px solid #000000;
+    border-radius: 50%;
+    margin: 20px auto -80px;
+}
+
+.ztl-pricing-plan.plan-primary .plan-price {
+    font-size: 35px;
+    letter-spacing: -1px;
+    line-height: 1;
+    display: inline-block;
+    margin-top: 31px;
+}
+
+.ztl-pricing-plan.plan-primary .plan-time {
+    display: block;
+    margin-top: -2px;
+    font-size: 13px;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.ztl-pricing-plan.plan-primary .plan-currency {
+    vertical-align: 5px;
+    margin-left: -8px;
+}
+
+.ztl-pricing-plan.plan-primary .plan-title {
+    display: block;
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+}
+
+.ztl-pricing-plan.plan-primary .plan-subtitle {
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin: 3px 0 0;
+    padding: 0;
+    text-transform: uppercase;
+    opacity: 1;
+}
+
+.ztl-pricing-plan.plan-primary .plan-features {
+    padding: 40px;
+}
+
+.ztl-pricing-plan.plan-secondary .plan-header {
+    display: block;
+    text-align: center;
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+}
+
+.ztl-pricing-plan.plan-secondary .plan-title {
+    font-size: 15px;
+    line-height: 19px;
+    text-transform: uppercase;
+    background: rgba(0, 0, 0, 0.145);
+    margin: 0 0 32px;
+    padding: 15px 0;
+    display: block;
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+}
+
+.ztl-pricing-plan.plan-secondary .plan-price {
+    font-size: 54px;
+    line-height: 62px;
+}
+
+.ztl-pricing-plan.plan-secondary .plan-currency {
+    vertical-align: 25px;
+}
+
+.ztl-pricing-plan.plan-secondary .plan-subtitle {
+    margin: 0px;
+    padding: 5px 10px 45px;
+    display: block;
+    font-size: 14px;
+}
+
+.ztl-pricing-plan.plan-secondary .plan-features {
+    padding: 40px;
+}
+
+.ztl-pricing-plan.plan-secondary .plan-badge {
+    top: -24px;
+    right: -18px;
+}
+
+.ztl-pricing-plan.plan-secondary .plan-arrow {
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    left: 50%;
+    margin-top: -9px;
+    margin-left: -10px;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent;
+}
+
+.ztl-pricing-plan.plan-tertiary .plan-header {
+    display: block;
+    text-align: center;
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+}
+
+.ztl-pricing-plan.plan-tertiary .plan-title-wrapper {
+    padding: 26px 40px 25px;
+    margin-bottom: 25px;
+    display: block;
+    text-align: center;
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+}
+
+.ztl-pricing-plan.plan-tertiary .plan-title {
+    font-size: 23px;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.ztl-pricing-plan.plan-tertiary .plan-currency {
+    font-size: 39px;
+    vertical-align: 5px;
+    padding-left: 1px;
+}
+
+.ztl-pricing-plan.plan-tertiary .plan-subtitle {
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin: 3px 0 0;
+    padding: 0;
+    text-transform: uppercase;
+    opacity: 1;
+}
+
+.ztl-pricing-plan.plan-tertiary .plan-features {
+    padding: 0 40px 45px;
+}
+
+.ztl-pricing-plan.plan-tertiary .plan-badge {
+    top: -12px;
+    right: -13px;
+}
+
+.ztl-pricing-plan.plan-tertiary .plan-divider {
+    width: 75%;
+    margin: 25px auto 35px;
+}
+
+.ztl-pricing-plan.plan-tertiary .plan-arrow {
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    left: 50%;
+    margin-top: -26px;
+    margin-left: -10px;
+    border-style: solid;
+    border-width: 10px 10px 0 10px;
+    border-color: transparent;
+}
+
+.ztl-pricing-plan.plan-tertiary .plan-price {
+    font-size: 60px;
+}
+
+
+/* 11.0  - Testimonials */
+.ztl-testimonials-carousel {
+    overflow: hidden;
+}
+
+.ztl-testimonials-carousel .owl-item {
+    float: left;
+}
+
+.ztl-testimonials-carousel .item-testimonial {
+    position: relative;
+    text-align: center;
+    padding: 0 30px;
+    margin: 0 10px;
+}
+/*.ztl-testimonials-carousel .item-testimonial:before{ position: absolute;  width: 100%;  height: 2px;  content: ""; top: 40px;  left: 0; border-bottom: 2px dashed #c7c7c7; z-index: -1; }*/
+.ztl-testimonials-carousel .number-step {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    line-height: 80px;
+    text-align: center;
+    font-size: 30px;
+    margin: 0 auto;
+}
+
+.ztl-testimonials-carousel .item-testimonial .title {
+    margin-top: 20px;
+}
+
+.ztl-testimonials-carousel .owl-nav.disabled {
+    display: none;
+}
+
+.ztl-testimonials-carousel .owl-nav {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-top: 40px;
+}
+
+.ztl-testimonials-carousel .owl-next, .ztl-testimonials-carousel .owl-prev {
+    width: auto;
+}
+
+.ztl-testimonials-carousel .owl-prev, .ztl-testimonials-carousel .owl-next {
+    padding: 5px 10px;
+    border-radius: 28px;
+    border: solid 2px;
+    font-size: 12px;
+    line-height: 16px;
+    transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    margin: 0 4px;
+    min-width: 60px;
+}
+
+.ztl-testimonials-carousel .owl-prev {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    text-align: right;
+}
+
+.ztl-testimonials-carousel .owl-next {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    text-align: left;
+}
+
+.ztl-testimonials-carousel .owl-dots {
+    padding-top: 20px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.ztl-testimonials-carousel .owl-dots .owl-dot {
+    border: 2px solid;
+    border-radius: 100%;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    margin: 5px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+}
+
+.ztl-testimonials-carousel .author-image img {
+    border-radius: 100%;
+    overflow: hidden;
+    border: 2px solid;
+}
+
+.ztl-testimonials-carousel .title {
+    margin-bottom: 20px;
+    font-size: 36px;
+}
+
+.ztl-testimonials-carousel .author-name {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.ztl-testimonials-carousel .title img {
+    max-width: 64px;
+    max-height: 64px;
+}

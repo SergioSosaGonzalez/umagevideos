@@ -43,6 +43,9 @@ class Security extends Plugin {
             $adminResources = array(
                 "user"=>array("deleteuser","newuser","index","saveuser","edit","inactive","activity"),
                 "reports"=>array("index","general","generatetwo","generatethree","generatefour","downloadxlsgeneral","downloadxlsuser","downloadxlsresults","reportschool","downloadxlsresultsschools","downloadxlsgeneralschool","downloadxlsschoolsemester","downloadxlslastresult"),
+                "category"=>array("index","newcategory","seecategory","editcategory","subcategory","newsubcategory","editsubcategory"),
+                "index"=>array("index","validateurl","extrasoperations"),
+                "courses"=>array("index","vistatemario","authorizedcourse")
             );
             foreach($adminResources as $resource => $actions){
                 $acl->addResource(new \Phalcon\Acl\Resource($resource),$actions);
@@ -68,7 +71,7 @@ class Security extends Plugin {
                 $acl->addResource(new \Phalcon\Acl\Resource($resource),$actions);
             };
             $publicResources = array(
-                "login"=>array('index',"logout","session"),
+                "login"=>array('index',"logout","session","iniciosesion"),
             );
             foreach($publicResources as $resource => $actions){
                 $acl->addResource(new \Phalcon\Acl\Resource($resource),$actions);
@@ -131,7 +134,7 @@ class Security extends Plugin {
                 $this->response->redirect("login");
             }
             else{
-                $this->response->redirect("inscription");
+                $this->response->redirect("dashboard");
             }
             return false;
         }

@@ -19,13 +19,9 @@
     <link rel="author" href="https://plus.google.com/u/0/101316577346995540804/posts"/>
 
     <!-- CSS INCLUDE -->
-    {% block head %}
-        {{ assets.outputCss('functions') }}
-    {% endblock %}
-    <link rel="stylesheet" href="{{url('dash/css/bootstrap/bootstrap.min.css')}}">
-    <link rel="stylesheet" type="text/css" id="theme" href="{{url('dash/css/theme-login.css')}}"/>
-    <link rel="stylesheet" type="text/css" id="theme" href="{{url('dash/css/fontawesome/font-awesome.min.css')}}"/>
-    <link rel="stylesheet" href="{{url('front/assets/css/formValidation.min.css')}}" media="screen">
+    <link rel="stylesheet" href="{{url('dash/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url('dash/css/formValidation.min.css')}}" media="screen">
+    <link rel="stylesheet" href="{{url('dash/css/signin.css')}}" media="screen">
     <!-- EOF CSS INCLUDE -->
 </head>
 <body>
@@ -33,5 +29,6 @@
     {% block head %}
         {{ assets.outputJs('JsIndexLogin') }}
     {% endblock %}
+
 </body>
 </html>

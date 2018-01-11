@@ -25,7 +25,8 @@ class Module implements ModuleDefinitionInterface
             'Modules\Models' => __DIR__ . '/../../models/',
             'Modules\Models\Entities' => __DIR__ . '/../../models/entities/',
             'Modules\Models\Services' => __DIR__ . '/../../models/services/',
-            'Modules\Models\Repositories' => __DIR__ . '/../../models/repositories/'
+            'Modules\Models\Repositories' => __DIR__ . '/../../models/repositories/',
+            'Modules\Frontend\Plugins'=>__DIR__.'/plugins/'
         ));
 
         $loader->register();
@@ -67,6 +68,17 @@ class Module implements ModuleDefinitionInterface
 
             return $view;
         });
+
+        $di->set('dispatcher', function() use ($di){
+            $dispatcher = new \Phalcon\Mvc\Dispatcher();
+            $dispatcher->setDefaultNamespace("Modules\Frontend\Controllers\\");
+            $eventsManager = $di->getShared('eventsManager');
+            $security = new Plugins\Security($di);
+            $eventsManager->attach('dispatch', $security);
+            $dispatcher->setEventsManager($eventsManager);
+            return $dispatcher;
+        });
+
 
 
 

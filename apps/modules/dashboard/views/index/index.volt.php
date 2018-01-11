@@ -1,96 +1,162 @@
-<!-- START BREADCRUMB -->
-<ul class="breadcrumb">
-    <li><a href="#">inicio</a></li>
-    <li class="active">Menú principal</li>
-</ul>
-<!-- END BREADCRUMB -->
-
-<!-- PAGE CONTENT WRAPPER -->
-<div class="page-content-wrap">
-
-<!-- START WIDGETS -->
-<div class="row">
-    <div class="col-md-3">
-        <!-- START WIDGET MESSAGES -->
-        <div class="widget widget-default widget-item-icon " style="cursor:pointer" onclick="location.href='/';">
-            <div class="widget-item-left">
-                <i class="fa fa-pencil-square-o"></i>
+<div id="content">
+    <div class="outer">
+        <div class="inner bg-light lter">
+            <div class="text-center">
+                <ul class="stats_box">
+                    <li>
+                        <div class="sparkline bar_week"></div>
+                        <div class="stat_text">
+                            <strong>2.345</strong> Weekly Visit
+                            <span class="percent down"> <i class="fa fa-caret-down"></i> -16%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="sparkline line_day"></div>
+                        <div class="stat_text">
+                            <strong>165</strong> Daily Visit
+                            <span class="percent up"> <i class="fa fa-caret-up"></i> +23%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="sparkline pie_week"></div>
+                        <div class="stat_text">
+                            <strong>$2 345.00</strong> Weekly Sale
+                            <span class="percent"> 0%</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="sparkline stacked_month"></div>
+                        <div class="stat_text">
+                            <strong>$678.00</strong> Monthly Sale
+                            <span class="percent down"> <i class="fa fa-caret-down"></i> -10%</span>
+                        </div>
+                    </li>
+                </ul>
             </div>
-            <div class="widget-data">
-                <div class="widget-int num-count"><span class="fa fa-envelope"></span></div>
-                <div class="widget-title">Enviar mensajes</div>
-                <div class="widget-subtitle">a todos los usuarios</div>
+            <hr>
+            <div class="text-center">
+                <a class="quick-btn" href="#">
+                    <i class="fa fa-bolt fa-2x"></i>
+                    <span>default</span>
+                    <span class="label label-default">2</span>
+                </a>
+                <a class="quick-btn" href="#">
+                    <i class="fa fa-check fa-2x"></i>
+                    <span>danger</span>
+                    <span class="label label-danger">2</span>
+                </a>
+                <a class="quick-btn" href="#">
+                    <i class="fa fa-building-o fa-2x"></i>
+                    <span>No Label</span>
+                </a>
+                <a class="quick-btn" href="#">
+                    <i class="fa fa-envelope fa-2x"></i>
+                    <span>success</span>
+                    <span class="label label-success">-456</span>
+                </a>
+                <a class="quick-btn" href="#">
+                    <i class="fa fa-signal fa-2x"></i>
+                    <span>warning</span>
+                    <span class="label label-warning">+25</span>
+                </a>
+                <a class="quick-btn" href="#">
+                    <i class="fa fa-external-link fa-2x"></i>
+                    <span>π</span>
+                    <span class="label btn-metis-2">3.14159265</span>
+                </a>
+                <a class="quick-btn" href="#">
+                    <i class="fa fa-lemon-o fa-2x"></i>
+                    <span>é</span>
+                    <span class="label btn-metis-4">2.71828</span>
+                </a>
+                <a class="quick-btn" href="#">
+                    <i class="fa fa-glass fa-2x"></i>
+                    <span>φ</span>
+                    <span class="label btn-metis-3">1.618</span>
+                </a>
             </div>
-            <div class="widget-controls">
-                <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
-            </div>
-        </div>
-        <!-- END WIDGET MESSAGES -->
-    </div>
-    <div class="col-md-3">
-
-        <!-- START WIDGET REGISTRED -->
-        <div class="widget widget-default widget-item-icon" style="cursor:pointer" onclick="location.href='<?=$this->url->get('inscription/client/new')?>';">
-            <div class="widget-item-left">
-                <span class="fa fa-user"></span>
-            </div>
-            <div class="widget-data">
-                <div class="widget-int num-count"><span class="fa fa-users"></span></div>
-                <div class="widget-title">Alta Cliente</div>
-                <div class="widget-subtitle">Nuevo</div>
-            </div>
-            <div class="widget-controls">
-                <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
-            </div>
-        </div>
-        <!-- END WIDGET REGISTRED -->
-
-    </div>
-    <div class="col-md-3">
-
-        <!-- START WIDGET REGISTRED -->
-        <div class="widget widget-default widget-item-icon" style="cursor:pointer" onclick="location.href='<?=$this->url->get('inscription/clients')?>';">
-            <div class="widget-item-left">
-                <span class="fa fa-list"></span>
-            </div>
-            <div class="widget-data">
-                <div class="widget-int num-count"><span class="fa fa-list-ol"></span></div>
-                <div class="widget-title">Lista de clientes</div>
-                <div class="widget-subtitle">Clientes registrados</div>
-            </div>
-            <div class="widget-controls">
-                <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="top" title="Remove Widget"><span class="fa fa-times"></span></a>
-            </div>
-        </div>
-        <!-- END WIDGET REGISTRED -->
-
-    </div>
-    <div class="col-md-3">
-
-        <!-- START WIDGET CLOCK -->
-        <div class="widget widget-danger widget-padding-sm">
-            <div class="widget-big-int plugin-clock">00:00</div>
-            <div class="widget-subtitle plugin-date">Cargando...</div>
-            <div class="widget-controls">
-                <a href="#" class="widget-control-right widget-remove" data-toggle="tooltip" data-placement="left" title="Remove Widget"><span class="fa fa-times"></span></a>
-            </div>
-            <div class="widget-buttons widget-c3">
-                <div class="col">
-                    <a href="#"><span class="fa fa-clock-o"></span></a>
+            <hr>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="box">
+                        <header>
+                            <h5>Line Chart</h5>
+                        </header>
+                        <div class="body" id="trigo" style="height: 250px;"></div>
+                    </div>
                 </div>
-                <div class="col">
-                    <a href="#"><span class="fa fa-bell"></span></a>
-                </div>
-                <div class="col">
-                    <a href="#"><span class="fa fa-calendar"></span></a>
+                <div class="col-lg-4">
+                    <div class="box">
+                        <div class="body">
+                            <table class="table table-condensed table-hovered sortableTable">
+                                <thead>
+                                <tr>
+                                    <th>Country
+                                        <i class="fa sort"></i>
+                                    </th>
+                                    <th>Visit
+                                        <i class="fa sort"></i>
+                                    </th>
+                                    <th>Time
+                                        <i class="fa sort"></i>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="active">
+                                    <td>Andorra</td>
+                                    <td>1126</td>
+                                    <td>00:00:15</td>
+                                </tr>
+                                <tr>
+                                    <td>Belarus</td>
+                                    <td>350</td>
+                                    <td>00:01:20</td>
+                                </tr>
+                                <tr class="danger">
+                                    <td>Paraguay</td>
+                                    <td>43</td>
+                                    <td>00:00:30</td>
+                                </tr>
+                                <tr class="warning">
+                                    <td>Malta</td>
+                                    <td>547</td>
+                                    <td>00:10:20</td>
+                                </tr>
+                                <tr>
+                                    <td>Australia</td>
+                                    <td>560</td>
+                                    <td>00:00:10</td>
+                                </tr>
+                                <tr>
+                                    <td>Kenya</td>
+                                    <td>97</td>
+                                    <td>00:20:00</td>
+                                </tr>
+                                <tr class="success">
+                                    <td>Italy</td>
+                                    <td>2450</td>
+                                    <td>00:10:00</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- END WIDGET CLOCK -->
-
-    </div>
-</div>
-<!-- END WIDGETS -->
-
-</div>
-<!-- END PAGE CONTENT WRAPPER -->
+            <hr>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="box">
+                        <header>
+                            <h5>Calendar</h5>
+                        </header>
+                        <div id="calendar_content" class="body">
+                            <div id='calendar'></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.inner -->
+    </div><!-- /.outer -->
+</div><!-- /#content -->

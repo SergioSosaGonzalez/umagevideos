@@ -1,0 +1,151 @@
+<br>
+<style>
+    .modal-backdrop{
+        display: none;
+    }
+</style>
+<div id="main-home-content" class="home-content home-page container" role="main">
+    <div id="pl-12" class="panel-layout">
+        <div id="pg-12-4" class="panel-grid panel-no-style">
+            <div id="pgc-12-4-0" class="panel-grid-cell">
+                <div id="panel-12-4-0-0" class="so-panel widget widget_heading panel-first-child"
+                     data-index="9">
+                    <div class="thim-widget-heading thim-widget-heading-base">
+                        <div class="sc_heading text-left"><h3 class="title">Administración de los cursos</h3>
+                            <p class="sub-heading" style="">Panel para administrar los cursos.</p><span class="line"></span></div>
+                    </div>
+                </div>
+                <div id="panel-12-4-0-1" class="so-panel widget widget_list-event panel-last-child"
+                     data-index="10">
+                    <div class="thim-widget-list-event thim-widget-list-event-base">
+                        <div class="thim-list-event" id="contenidoSubtemario">
+                            <a class="view-all" href="#" data-toggle="modal" data-target="#myModalFrontSubtemary">Nuevo subtema</a>
+                              <?php foreach ($subtemary as $key): ?>
+                                <div id="<?=$key->getSutemid()?>" class="item-event post-3062 tp_event type-tp_event status-tp-event-upcoming has-post-thumbnail hentry pmpro-has-access" style="text-align: center">
+                                    <div class="image">
+                                        <a href="/instructor/crear-curso/subtemario/ver-video/<?=$key->getSutemid()?>">Ver video</a>
+                                    </div>
+                                    <div class="event-wrapper">
+                                        <h5 class="title subtemaryTitle"><?=$key->getSubtitle()?></h5>
+                                        <div class="meta">
+                                            <div class="time"><i class="fa fa-pencil"></i><a id="editVideo" onclick="consultsubtemary(<?=$key->getSutemid()?>)" href="#"  data-toggle="modal" data-target="#myModalFrontSubtemaryEdit">Editar</a>
+                                            </div>
+                                            <?php $videos = \Modules\Models\CdVideos::findFirst("sutemid=".$key->getSutemid()) ?>
+                                            <input type="hidden" id="image-3" value="<?=$videos->getVideo()?>">
+                                            <div class="time"><i class="fa fa-times"></i><a  onclick="deletecourses(<?=$key->getSutemid()?>,'subtemid')" href="#">Eliminar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<div id="myModalFrontSubtemary" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content" style="color:black; text-align: center">
+            <div class="modal-header" style="background: black">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Nuevo subtema</h4>
+            </div>
+            <form id="newSubtopic">
+                <div class="modal-body">
+                    <div class="container" style="width: 100%">
+                        <div class="row">
+                            <input type="hidden" name="temid" value="<?=$temid?>">
+                            <div class="col-md-12">
+                                <label >Titulo:</label>
+                                <input type="text" name="subtemtitle" class="form-control cPNewSubTopic" style="text-align: center">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label >Permalink:</label>
+                                <input type="text" name="subtitlePermalink" id="subtitlePermalink" class="form-control" style="text-align: center" readonly>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="subtemaryVideo" class="dropzone">
+                                    <div class="dz-default dz-message">
+                                        <h2 style="text-align:center;position: relative;top:-30px;" id="content-image">
+                                            <i class="fa fa-cloud-upload" style="font-size: 88px;"></i><br>
+                                            Arrastra un video<br><i style="font-size: 14px">o haz click para seleccionar manualmente</i>
+                                        </h2>
+                                        <input type="hidden" value="" name="image-2" id="image-2">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="modal-footer" style="background: black">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-info" >Guardar</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+<div id="myModalFrontSubtemaryEdit" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content" style="color:black; text-align: center">
+            <div class="modal-header" style="background: black">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Editar subtema</h4>
+            </div>
+            <form id="editSubtopic">
+                <div class="modal-body">
+                    <div class="container" style="width: 100%">
+                        <div class="row">
+                            <input type="hidden" id="subtemid" name="subtemid" value="">
+                            <div class="col-md-12">
+                                <label >Titulo:</label>
+                                <input type="text" name="subtemtitleEdit" class="form-control cPEditSubTopic" style="text-align: center">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label >Permalink:</label>
+                                <input type="text" name="subtitlePermalinkEdit" id="subtitlePermalinkEdit" class="form-control" style="text-align: center" readonly>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="subtemaryVideoEdit" class="dropzone">
+                                    <div class="dz-default dz-message">
+                                        <h2 style="text-align:center;position: relative;top:-30px;" id="content-image">
+                                            <i class="fa fa-cloud-upload" style="font-size: 88px;"></i><br>
+                                            Arrastra un video<br><i style="font-size: 14px">o haz click para seleccionar manualmente</i>
+                                        </h2>
+
+                                        <input type="hidden" value="" name="image-2">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="modal-footer" style="background: black">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-info" >Editar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,121 @@
+<br>
+<style>
+    .modal-backdrop{
+        display: none;
+    }
+</style>
+<div id="main-home-content" class="home-content home-page container" role="main">
+    <div id="pl-12" class="panel-layout">
+        <div id="pg-12-4" class="panel-grid panel-no-style">
+            <div id="pgc-12-4-0" class="panel-grid-cell">
+                <div id="panel-12-4-0-0" class="so-panel widget widget_heading panel-first-child"
+                     data-index="9">
+                    <div class="thim-widget-heading thim-widget-heading-base">
+                        <div class="sc_heading text-left"><h3 class="title">Administración de los cursos</h3>
+                            <p class="sub-heading" style="">Panel para administrar los cursos.</p><span class="line"></span></div>
+                    </div>
+                </div>
+                <div id="panel-12-4-0-1" class="so-panel widget widget_list-event panel-last-child"
+                     data-index="10">
+                    <div class="thim-widget-list-event thim-widget-list-event-base">
+                        <div class="thim-list-event" id="contenidoTemario">
+                            <a class="view-all" href="#" data-toggle="modal" data-target="#myModalFront">Nuevo tema</a>
+                               <?php foreach ($temario as $key): ?>
+                               <div id="<?=$key->getTemid()?>" class="item-event post-3062 tp_event type-tp_event status-tp-event-upcoming has-post-thumbnail hentry pmpro-has-access" style="text-align: center">
+                                    <div class="image">
+                                        <button onclick="subtemary(<?=$key->getTemid()?>)">Ver subtemas</button>
+                                    </div>
+                                    <div class="event-wrapper">
+                                        <h5 class="title temaryTitle"><?=$key->getTitle()?></h5>
+                                        <div class="meta">
+                                            <div class="time"><i class="fa fa-pencil"></i><a onclick="consulTemary(<?=$key->getTemid()?>);" href="#"  data-toggle="modal" data-target="#myModalFrontEdit">Editar</a>
+                                            </div>
+                                            <div class="time"><i class="fa fa-times"></i><a onclick="deletecourses(<?=$key->getTemid()?>,'temid')" href="#">Eliminar</a>
+                                            </div>
+                                        </div>
+                                        </div>
+                                </div>
+                               <?php endforeach; ?>
+                         </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<div id="myModalFront" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content" style="color:black; text-align: center">
+            <div class="modal-header" style="background: black">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Nuevo tema</h4>
+            </div>
+            <form id="newTopic">
+                <div class="modal-body">
+                    <div class="container" style="width: 100%">
+                        <div class="row">
+                            <input type="hidden" name="couid" value="<?=$couid?>">
+                            <div class="col-md-12">
+                                <label >Titulo:</label>
+                                <input type="text" name="temtitle" class="form-control cPNewTopic" style="text-align: center">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label >Permalink:</label>
+                                <input type="text" name="titlePermalink" id="titlePermalink" class="form-control" style="text-align: center" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="modal-footer" style="background: black">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-info" >Guardar</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+<div id="myModalFrontEdit" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content" style="color:black; text-align: center">
+            <div class="modal-header" style="background: black">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Editar tema</h4>
+            </div>
+            <form id="editTopic">
+                <div class="modal-body">
+                    <div class="container" style="width: 100%">
+                        <div class="row">
+                            <input type="hidden" id="temid" name="temid" value="">
+                            <div class="col-md-12">
+                                <label >Titulo:</label>
+                                <input type="text" name="temtitleEdit" class="form-control cPEditTopic" style="text-align: center">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label >Permalink:</label>
+                                <input type="text" name="titlePermalinkEdit" id="titlePermalinkEdit" class="form-control" style="text-align: center" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="modal-footer" style="background: black">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-info" >Editar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

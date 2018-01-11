@@ -1,0 +1,13 @@
+body{
+    background: #dbdbdb;
+}
+#videoContainer{
+    background: black;
+    height: 100%;
+    width: 100%;
+    margin: 10px auto;
+}
+#videoContainer video{
+    height: 40pc;
+    width: 100%;
+}

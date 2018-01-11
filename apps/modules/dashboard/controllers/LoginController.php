@@ -1,26 +1,59 @@
 <?php
 namespace Modules\Dashboard\Controllers;
 use Modules\Models\CdUser;
+use Phalcon\Assets\Filters\Cssmin;
+use Phalcon\Http\Request;
+
 class LoginController extends \Phalcon\Mvc\Controller
 {
     public function initialize(){
-        $this->assets->collection("functions")->addCss("dash/css/general.min.css");
+        $this->assets->collection("functions")
+                     ->setTargetPath("dash/css/general.min.css")
+                     ->setTargetUri("dash/css/general.min.css")
+                     ->addCss("dash/css/bootstrap.min.css")
+                     ->addCss("dash/css/font-awesome.min.css")
+                     ->addCss("dash/css/formValidation.min.css")
+                     ->join(true)
+                     ->addFilter(new Cssmin()) ;
+
         $this->assets->collection('JsIndexLogin')
-            ->setTargetPath("dash/js/login.min.js")
-            ->setTargetUri("dash/js/login.min.js")
-            ->addJs("dash/js/plugins/jquery/jquery.min.js")
-            ->addJs("dash/js/plugins/bootstrapV/formValidation.min.js")
-            ->addJs("dash/js/plugins/bootstrapV/bootstrapV.min.js")
-            ->addJs("dash/js/plugins/bootstrapV/es_ES.js")
-            ->addJs("dash/js/login/login.js")
-            ->join(true)
-            ->addFilter(new \Phalcon\Assets\Filters\Jsmin());
+                    ->setTargetPath("dash/js/login.min.js")
+                    ->setTargetUri("dash/js/login.min.js")
+                    ->addJs("dash/js/jquery.min.js")
+                    ->addJs("dash/js/bootstrap.min.js")
+                    ->addJs("dash/js/formValidation.min.js")
+                    ->addJs("dash/js/bootstrapV.min.js")
+                    ->addJs("dash/js/signin.js")
+                    ->join(true)
+                    ->addFilter(new \Phalcon\Assets\Filters\Jsmin());
         $this->view->setLayout('login');
         $this->_registerToken();
     }
     public function indexAction(){
         $session = $this->getSession();
         $this->view->setVar("key",$session["token"]);
+    }
+    public function iniciosesionAction(){
+        $request= new Request();
+        if(!($request->isPost() and $request->isAjax()))$this->response(array("message"=>"error"),404);
+        $email=$request->getPost('email');
+        $password=$request->getPost('password');
+        $consulta = CdUser::findFirst("email='$email'");
+        if(!$consulta){
+            $this->response(array("message"=>"usuario no encontrado"),200);
+        }else{
+            if($consulta->getEmail()==$email and $this->security->checkHash($password,$consulta->getPassword())){
+                $this->_registerSession($consulta);
+                $this->session->remove("session");
+
+                $this->response(array("message"=>"correcto"),200);
+            }else{
+                $this->response(array("message"=>"password incorrecto"),200);
+            }
+
+        }
+
+
     }
     public function sessionAction(){
         $session = $this->getSession();
@@ -51,7 +84,7 @@ class LoginController extends \Phalcon\Mvc\Controller
     }
     public function _registerSession($user){
         $this->session->set("auth",array(
-                "uid" => $user->getUid(),
+                "uid" => $user->getUserid(),
                 "username"=>$user->getUsername(),
                 "rol"=>$user->getRol(),
                 "name"=>$user->getName(),
@@ -59,7 +92,9 @@ class LoginController extends \Phalcon\Mvc\Controller
                 "email"=>$user->getEmail()
             )
         );
+
     }
+
     public function logoutAction(){
         $this->session->remove("auth");
         $this->session->remove("session");
