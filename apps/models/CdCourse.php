@@ -90,6 +90,34 @@ class CdCourse extends \Phalcon\Mvc\Model
     protected $status;
 
     /**
+     *
+     * @var string
+     * @Column(type="string", length=200, nullable=true)
+     */
+    protected $summary;
+
+    /**
+     *
+     * @var string
+     * @Column(type="string", length=200, nullable=true)
+     */
+    protected $introduction_video;
+
+    /**
+     *
+     * @var integer
+     * @Column(type="integer", length=11, nullable=true)
+     */
+    protected $students;
+
+    /**
+     *
+     * @var string
+     * @Column(type="string", length=75, nullable=true)
+     */
+    protected $lenguage;
+
+    /**
      * Method to set the value of field couid
      *
      * @param integer $couid
@@ -246,6 +274,58 @@ class CdCourse extends \Phalcon\Mvc\Model
     }
 
     /**
+     * Method to set the value of field summary
+     *
+     * @param string $summary
+     * @return $this
+     */
+    public function setSummary($summary)
+    {
+        $this->summary = $summary;
+
+        return $this;
+    }
+
+    /**
+     * Method to set the value of field introduction_video
+     *
+     * @param string $introduction_video
+     * @return $this
+     */
+    public function setIntroductionVideo($introduction_video)
+    {
+        $this->introduction_video = $introduction_video;
+
+        return $this;
+    }
+
+    /**
+     * Method to set the value of field students
+     *
+     * @param integer $students
+     * @return $this
+     */
+    public function setStudents($students)
+    {
+        $this->students = $students;
+
+        return $this;
+    }
+
+    /**
+     * Method to set the value of field lenguage
+     *
+     * @param string $lenguage
+     * @return $this
+     */
+    public function setLenguage($lenguage)
+    {
+        $this->lenguage = $lenguage;
+
+        return $this;
+    }
+
+    /**
      * Returns the value of field couid
      *
      * @return integer
@@ -366,6 +446,46 @@ class CdCourse extends \Phalcon\Mvc\Model
     }
 
     /**
+     * Returns the value of field summary
+     *
+     * @return string
+     */
+    public function getSummary()
+    {
+        return $this->summary;
+    }
+
+    /**
+     * Returns the value of field introduction_video
+     *
+     * @return string
+     */
+    public function getIntroductionVideo()
+    {
+        return $this->introduction_video;
+    }
+
+    /**
+     * Returns the value of field students
+     *
+     * @return integer
+     */
+    public function getStudents()
+    {
+        return $this->students;
+    }
+
+    /**
+     * Returns the value of field lenguage
+     *
+     * @return string
+     */
+    public function getLenguage()
+    {
+        return $this->lenguage;
+    }
+
+    /**
      * Initialize method for model.
      */
     public function initialize()
@@ -375,7 +495,8 @@ class CdCourse extends \Phalcon\Mvc\Model
         $this->hasMany('couid', 'CdClientCourse', 'couid', ['alias' => 'CdClientCourse']);
         $this->hasMany('couid', 'CdCommentary', 'couid', ['alias' => 'CdCommentary']);
         $this->hasMany('couid', 'CdImages', 'couid', ['alias' => 'CdImages']);
-        $this->hasMany('couid', 'CdLearningCourse', 'couid', ['alias' => 'CdLearningCourse']);
+        $this->hasMany('couid', 'CdLearning', 'couid', ['alias' => 'CdLearning']);
+        $this->hasMany('couid', 'CdRequeriments', 'couid', ['alias' => 'CdRequeriments']);
         $this->hasMany('couid', 'CdTemary', 'couid', ['alias' => 'CdTemary']);
         $this->belongsTo('clieid', '\CdClient', 'clieid', ['alias' => 'CdClient']);
         $this->belongsTo('subid', '\CdSubcategory', 'subid', ['alias' => 'CdSubcategory']);

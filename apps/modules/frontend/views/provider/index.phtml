@@ -17,7 +17,7 @@
                                                     height="52"></span></span></div>
                                     <div class="content-inner" style="width: calc( 100% - 135px - 15px);">
                                         <div class="sc-heading article_heading"><h3
-                                                class="heading__primary">Best Industry Leaders</h3></div>
+                                                class="heading__primary">Mejor industria del aprendisaje</h3></div>
                                         <a class="smicon-read sc-btn" target="_self" href="#"
                                            style="color: #ffb606;">View More<i
                                                 class="fa fa-chevron-right"></i></a></div>
@@ -41,7 +41,7 @@
                                                     height="51"></span></span></div>
                                     <div class="content-inner" style="width: calc( 100% - 132px - 15px);">
                                         <div class="sc-heading article_heading"><h3
-                                                class="heading__primary">Learn Courses Online</h3></div>
+                                                class="heading__primary">Aprende cursos en linea</h3></div>
                                         <a class="smicon-read sc-btn" target="_self" href="#"
                                            style="color: #ffb606;">View More<i
                                                 class="fa fa-chevron-right"></i></a></div>
@@ -65,7 +65,7 @@
                                                     height="50"></span></span></div>
                                     <div class="content-inner" style="width: calc( 100% - 135px - 15px);">
                                         <div class="sc-heading article_heading"><h3
-                                                class="heading__primary">Book Library &#38; Store</h3></div>
+                                                class="heading__primary">Biblioteca &#38; Tienda</h3></div>
                                         <a class="smicon-read sc-btn" target="_self" href="#"
                                            style="color: #ffb606;">View More<i
                                                 class="fa fa-chevron-right"></i></a></div>
@@ -81,7 +81,7 @@
                 <div id="panel-12-2-0-0" class="so-panel widget widget_heading panel-first-child"
                      data-index="4">
                     <div class="thim-widget-heading thim-widget-heading-base">
-                        <div class="sc_heading text-left"><h3 class="title">Popular Courses</h3><span
+                        <div class="sc_heading text-left"><h3 class="title">Cursos populares</h3><span
                                 class="line"></span></div>
                     </div>
                 </div>
@@ -90,30 +90,31 @@
                     <div class="thim-widget-courses thim-widget-courses-base">
                         <div class="thim-carousel-wrapper thim-course-carousel thim-course-grid"
                              data-visible="4" data-pagination="0" data-navigation="1" data-autoplay="0">
+                          <?php foreach ($cursos as $key):?>
                             <div class="course-item">
                                 <div class="course-thumbnail"><a class="thumb"
-                                                                 href="https://educationwp.thimpress.com/courses/learnpress-101/"><img
-                                            src="https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/course-4-450x450.jpg"
+                                                                 href="/instructor/cursos/<?=$key->getPermalink()?>"><img
+                                            src="/front/courses_images/<?=$key->getMainImage()?>"
                                             alt="Introduction LearnPress &#8211; LMS plugin" title="course-4"
-                                            width="450" height="450"></a><a class="course-readmore"
-                                                                            href="https://educationwp.thimpress.com/courses/learnpress-101/">Read
-                                        More</a></div>
+                                            width="450" height="450" style="height: 270px;width: 270px"></a><a class="course-readmore"
+                                                                            href="/instructor/cursos/<?=$key->getPermalink()?>">Leer más</a></div>
                                 <div class="thim-course-content">
+                                    <?php $client = \Modules\Models\CdClient::findFirst('clieid='.$key->getClieid()); ?>
                                     <div class="course-author" itemscope
                                          itemtype="http://schema.org/Person"><img alt="Admin bar avatar"
-                                                                                  src="https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/learn-press-profile/7/9c081444f942cc8fe0ddf55631b584e2.jpg"
+                                                                                  src="<?=$client->getImg()==''?'/front/img/user-img.png':'/front/coursesimage/'.$client->getImg()?>"
                                                                                   class="avatar avatar-40 photo"
                                                                                   height="40" width="40"/>
                                         <div class="author-contain"><label
                                                 itemprop="jobTitle">Teacher</label>
                                             <div class="value" itemprop="name"><a
-                                                    href="https://educationwp.thimpress.com/profile/keny/courses/">
-                                                    Keny White </a></div>
+                                                    href="#">
+                                                    <?=$client->getNames()?> <?=$client->getLastName()?></a></div>
                                         </div>
                                     </div>
                                     <h2 class="course-title"><a
-                                            href="https://educationwp.thimpress.com/courses/learnpress-101/">
-                                            Introduction LearnPress &#8211; LMS plugin</a></h2>
+                                            href="instructor/cursos/<?=$key->getPermalink()?>">
+                                            <?=$key->getName()?></a></h2>
                                     <div class="course-meta">
                                         <div class="course-students"><label>Students</label>
                                             <div class="value"><i class="fa fa-group"></i> 570</div>
@@ -123,12 +124,13 @@
                                         </div>
                                         <div class="course-price" itemprop="offers" itemscope
                                              itemtype="http://schema.org/Offer">
-                                            <div class="value free-course" itemprop="price"> Free</div>
+                                            <div class="value" itemprop="price"> $<?=$key->getPrice()?>.00</div>
                                             <meta itemprop="priceCurrency" content="&#36;"/>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                          <?php endforeach; ?>
                             <div class="course-item">
                                 <div class="course-thumbnail"><a class="thumb"
                                                                  href="https://educationwp.thimpress.com/courses/node/"><img
@@ -338,9 +340,8 @@
                 <div id="panel-12-4-0-0" class="so-panel widget widget_heading panel-first-child"
                      data-index="9">
                     <div class="thim-widget-heading thim-widget-heading-base">
-                        <div class="sc_heading text-left"><h3 class="title">Events</h3>
-                            <p class="sub-heading" style="">Upcoming Education Events to feed your
-                                brain.</p><span class="line"></span></div>
+                        <div class="sc_heading text-left"><h3 class="title">Eventos</h3>
+                            <p class="sub-heading" style="">Proximos eventos para alimentar tu cerebro</p><span class="line"></span></div>
                     </div>
                 </div>
                 <div id="panel-12-4-0-1" class="so-panel widget widget_list-event panel-last-child"

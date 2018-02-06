@@ -1,0 +1,1105 @@
+<div id="main-home-content" class="home-content home-page container" role="main">
+    <div class="container site-content sidebar-right">
+        <div class="row">
+            <main id="main" class="site-main col-sm-9 alignleft">
+                <article id="post-5428"
+                         class="post-5428 lp_course type-lp_course status-publish has-post-thumbnail hentry course_category-general pmpro-has-access course">
+                    <div class="entry-content">
+                        <div id="lp-single-course" class="learnpress-content learn-press"><h1
+                                    class="entry-title" itemprop="name"><?=$curso->getName()?></h1>
+                            <div class="course-meta">
+                                <div class="course-author" itemscope itemtype="http://schema.org/Person">
+                                    <img alt="Admin bar avatar"
+                                         src="https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/learn-press-profile/7/9c081444f942cc8fe0ddf55631b584e2.jpg"
+                                         class="avatar avatar-40 photo" height="40" width="40"/>
+                                    <div class="author-contain"><label itemprop="jobTitle">Instructor</label>
+                                        <div class="value" itemprop="name"><a
+                                                    href="#"><?=$instructor->getNames()?> <?=$instructor->getLastName()?></a></div>
+                                    </div>
+                                </div>
+                                <div class="course-categories"><label>Categoria</label>
+                                    <div class="value"><span class="cat-links"><a
+                                                    href="https://educationwp.thimpress.com/course-category/general/"
+                                                    rel="tag"><?=$subcategory->getName()?></a></span></div>
+                                </div>
+                                <div class="course-review"><label>Review</label>
+                                    <div class="value">
+                                        <div class="review-stars-rated">
+                                            <ul class="review-stars">
+                                                <li><span class="fa fa-star-o"></span></li>
+                                                <li><span class="fa fa-star-o"></span></li>
+                                                <li><span class="fa fa-star-o"></span></li>
+                                                <li><span class="fa fa-star-o"></span></li>
+                                                <li><span class="fa fa-star-o"></span></li>
+                                            </ul>
+                                            <ul class="review-stars filled" style="width: 100%">
+                                                <li><span class="fa fa-star"></span></li>
+                                                <li><span class="fa fa-star"></span></li>
+                                                <li><span class="fa fa-star"></span></li>
+                                                <li><span class="fa fa-star"></span></li>
+                                                <li><span class="fa fa-star"></span></li>
+                                            </ul>
+                                        </div>
+                                        <span>(3 reviews)</span></div>
+                                </div>
+                            </div>
+                            <div class="course-payment">
+                                <div class="course-price" itemprop="offers" itemscope
+                                     itemtype="http://schema.org/Offer">
+                                    <div class="value <?=$curso->getPrice()=='0'?'free-course':''?>" itemprop="price"> $<?=$curso->getPrice()?>.00</div>
+                                    <meta itemprop="priceCurrency" content="&#36;"/>
+                                </div>
+                                <form name="purchase-course" class="purchase-course form-purchase-course"
+                                      method="post" enctype="multipart/form-data">
+                                    <button class="button purchase-button thim-enroll-course-button"> Inscribirse
+                                    </button>
+                                    <input type="hidden" name="single-purchase" value="yes"/> <input
+                                            type="hidden" name="add-to-cart" value="5428"/> <input type="hidden"
+                                                                                                   name="purchase-course"
+                                                                                                   value="5428"/>
+                                    <input type="hidden" name="redirect_to" value=""/></form>
+                            </div>
+                            <div class="course-thumbnail">
+                                <div class="media-intro">
+                                    <video id="my-video" class="video-js" controls preload="auto" style="width: 100%;height: 29pc"
+                                           poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+                                        <source src="/media/videos/<?=$curso->getIntroductionVideo()?>" type="video/mp4">
+                                    </video>
+                                </div>
+                            </div>
+                            <div class="course-summary">
+                                <div class="course-landing-summary"></div>
+                                <div id="course-landing">
+                                    <div class="course-tabs">
+                                        <ul class="nav nav-tabs">
+                                            <li role="presentation" class="active"><a
+                                                        href="#tab-course-description" data-toggle="tab"> <i
+                                                            class="fa fa-bookmark"></i> <span>Descripción</span>
+                                                </a></li>
+                                            <li role="presentation"><a href="#tab-course-curriculum"
+                                                                       data-toggle="tab"> <i
+                                                            class="fa fa-cube"></i> <span>Temario</span> </a>
+                                            </li>
+                                            <li role="presentation"><a href="#tab-course-instructor"
+                                                                       data-toggle="tab"> <i
+                                                            class="fa fa-user"></i> <span>Instructor</span> </a>
+                                            </li>
+                                            <li role="presentation"><a href="#tab-course-review"
+                                                                       data-toggle="tab"> <i
+                                                            class="fa fa-comments"></i> <span>Comentarios</span> </a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="tab-course-description">
+                                                <div class="thim-course-content"><h4>Resumen</h4>
+                                                    <p>
+                                                        <?=$curso->getSummary()?>
+                                                    </p><h4>Descripción</h4>
+                                                    <p><?=$curso->getDescription()?></p>
+                                                    <h4>¿Qué aprenderas?</h4>
+                                                    <ul class="thim-list-content">
+                                                        <?php foreach ($learning as $key):?>
+                                                            <li><?=$key->getName()?></li>
+                                                        <?php endforeach;?>
+                                                    </ul>
+                                                    <h4>Requisitos</h4>
+                                                    <ul class="thim-list-content">
+                                                        <?php foreach ($requeriments as $cnv):?>
+                                                            <li><?=$cnv->getRequeriments()?></li>
+                                                        <?php endforeach;?>
+                                                    </ul>
+                                                </div>
+                                                <div class="thim-course-info"><h3 class="title">Incluye:</h3>
+                                                    <ul>
+                                                        <li class="lectures-feature"><i
+                                                                    class="fa fa-files-o"></i> <span
+                                                                    class="label">Contenido didactico</span> <span
+                                                                    class="value">6</span></li>
+                                                        <li class="duration-feature"><i
+                                                                    class="fa fa-clock-o"></i> <span
+                                                                    class="label">Duración</span> <span
+                                                                    class="value"><?=$curso->getDuration()?></span></li>
+                                                        <li class="skill-feature"><i
+                                                                    class="fa fa-level-up"></i> <span
+                                                                    class="label">Skill level</span> <span
+                                                                    class="value">All level</span></li>
+                                                        <li class="language-feature"><i
+                                                                    class="fa fa-language"></i> <span
+                                                                    class="label">Language</span> <span
+                                                                    class="value">Español</span></li>
+                                                        <li class="students-feature"><i
+                                                                    class="fa fa-users"></i> <span
+                                                                    class="label">Students</span> <span
+                                                                    class="value">0</span></li>
+                                                        <li class="students-feature"><i
+                                                                    class="fa fa-certificate"></i> <span
+                                                                    class="label">Certificado al finalizar</span>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+                                                <ul class="thim-social-share">
+                                                    <li class="heading">Share:</li>
+                                                    <li>
+                                                        <div class="facebook-social"><a target="_blank"
+                                                                                        class="facebook"
+                                                                                        href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Feducationwp.thimpress.com%2Fcourses%2Flearnpress-101%2F"
+                                                                                        title="Facebook"><i
+                                                                        class="fa fa-facebook"></i></a></div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="googleplus-social"><a target="_blank"
+                                                                                          class="googleplus"
+                                                                                          href="https://plus.google.com/share?url=https%3A%2F%2Feducationwp.thimpress.com%2Fcourses%2Flearnpress-101%2F&amp;title=Introduction%20LearnPress%20%26%238211%3B%20LMS%20plugin"
+                                                                                          title="Google Plus"
+                                                                                          onclick='javascript:window.open(this.href, "", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600");return false;'><i
+                                                                        class="fa fa-google"></i></a></div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="twitter-social"><a target="_blank"
+                                                                                       class="twitter"
+                                                                                       href="https://twitter.com/share?url=https%3A%2F%2Feducationwp.thimpress.com%2Fcourses%2Flearnpress-101%2F&amp;text=Introduction%20LearnPress%20%26%238211%3B%20LMS%20plugin"
+                                                                                       title="Twitter"><i
+                                                                        class="fa fa-twitter"></i></a></div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="pinterest-social"><a target="_blank"
+                                                                                         class="pinterest"
+                                                                                         href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Feducationwp.thimpress.com%2Fcourses%2Flearnpress-101%2F&amp;description=A%20WordPress%20LMS%20Plugin%20to%20create%20WordPress%20Learning%20Management%20System.%20Turn%20your%20WP%20to%20LMS%20WordPress%20with%20Courses%2C%20Lessons%2C%20Quizzes%20%26amp%3B%20more.%20&amp;media=https%3A%2F%2Feducationwp.thimpress.com%2Fwp-content%2Fuploads%2F2015%2F11%2Fcourse-4.jpg"
+                                                                                         onclick="window.open(this.href); return false;"
+                                                                                         title="Pinterest"><i
+                                                                        class="fa fa-pinterest-p"></i></a></div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="tab-pane " id="tab-course-curriculum">
+                                                <div class="course-curriculum"
+                                                     id="learn-press-course-curriculum">
+                                                    <div class="thim-curriculum-buttons"></div>
+                                                    <?php foreach ($temario as $cnv): ?>
+                                                        <ul class="curriculum-sections">
+                                                            <li class="section" id="section-219" data-id="219">
+                                                                <h4 class="section-header"><span
+                                                                            class="collapse"></span> <?=$cnv->getTitle()?> <span class="meta"> <span
+                                                                                class="step">0/7</span> </span></h4>
+                                                                <ul class="section-content">
+                                                                    <?php $subtemario= \Modules\Models\CdSubtemary::find("temid=".$cnv->getTemid());
+                                                                    foreach($subtemario as $i):
+                                                                        ?>
+                                                                        <li class="course-lesson course-item course-item-5429 free-item preview-item viewable"
+                                                                            data-type="lp_lesson">
+                                                                            <a class="lesson-title course-item-title button-load-item"
+                                                                               target="_blank"
+                                                                               href="https://educationwp.thimpress.com/courses/learnpress-101/lessons/what-is-learnpress-2/"
+                                                                               data-id="5429"
+                                                                               data-complete-nonce="1310ffe188"><?=$i->getSubtitle()?></a>
+                                                                            <div class="course-item-meta"><a
+                                                                                        title="Previews"
+                                                                                        class="lesson-preview button-load-item"
+                                                                                        href="https://educationwp.thimpress.com/courses/learnpress-101/lessons/what-is-learnpress-2/"
+                                                                                        data-id="5429"
+                                                                                        data-complete-nonce="1310ffe188">
+                                                                                    <i class="fa fa-eye"
+                                                                                       aria-hidden="true"></i> </a>
+                                                                                <span class="lp-icon item-status"></span>
+                                                                            </div>
+                                                                            <div class="meta" ></div>
+
+                                                                        </li>
+
+                                                                    <?php endforeach; ?>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    <?php endforeach; ?>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane " id="tab-course-instructor">
+                                                <div class="thim-about-author">
+                                                    <div class="author-wrapper">
+                                                        <div class="author-avatar"><img
+                                                                    alt="Admin bar avatar"
+                                                                    src="https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/learn-press-profile/7/9c081444f942cc8fe0ddf55631b584e2.jpg"
+                                                                    class="avatar avatar-110 photo" height="110"
+                                                                    width="110"/></div>
+                                                        <div class="author-bio">
+                                                            <div class="author-top"><a class="name"
+                                                                                       href="https://educationwp.thimpress.com/profile/keny/">
+                                                                    Keny White </a>
+                                                                <p class="job">Professor</p></div>
+                                                            <ul class="thim-author-social">
+                                                                <li>
+                                                                    <a href="http://example.com/eduma-the-best-lms-wordpress/theme"
+                                                                       class="facebook"><i
+                                                                                class="fa fa-facebook"></i></a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="http://example.com/eduma-the-best-lms-wordpress/theme"
+                                                                       class="twitter"><i
+                                                                                class="fa fa-twitter"></i></a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="http://example.com/eduma-the-best-lms-wordpress/theme"
+                                                                       class="google-plus"><i
+                                                                                class="fa fa-google-plus"></i></a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="http://example.com/eduma-the-best-lms-wordpress/theme"
+                                                                       class="linkedin"><i
+                                                                                class="fa fa-linkedin"></i></a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="http://example.com/eduma-the-best-lms-wordpress/theme"
+                                                                       class="youtube"><i
+                                                                                class="fa fa-youtube"></i></a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="author-description"><p>Keny White is
+                                                                Professor of the Department of Computer Science
+                                                                at Boston University, where he has been since
+                                                                2004. He also currently serves as Chief
+                                                                Scientist of Guavus, Inc. During 2003-2004 he
+                                                                was a Visiting Associate Professor at the
+                                                                Laboratoire d&#039;Infomatique de Paris VI
+                                                                (LIP6). He received a B.S. from Cornell
+                                                                University in 1992, and an M.S. from the State
+                                                                University of New York at Buffalo.</p></div>
+                                                    </div>
+                                                </div>
+                                                <div class="thim-about-author thim-co-instructor"
+                                                     itemprop="contributor" itemscope
+                                                     itemtype="http://schema.org/Person">
+                                                    <div class="author-wrapper">
+                                                        <div class="author-avatar"><img alt=''
+                                                                                        src='https://secure.gravatar.com/avatar/8ec1d9237e48ab70222b14973366fdb0?s=110&#038;r=g'
+                                                                                        srcset='https://secure.gravatar.com/avatar/8ec1d9237e48ab70222b14973366fdb0?s=220&#038;r=g 2x'
+                                                                                        class='avatar avatar-110 photo'
+                                                                                        height='110'
+                                                                                        width='110'/></div>
+                                                        <div class="author-bio">
+                                                            <div class="author-top"><a itemprop="url"
+                                                                                       class="name"
+                                                                                       href="https://educationwp.thimpress.com/profile/johndoe/">
+                                                                    <span itemprop="name">John Doe</span> </a>
+                                                                <p class="job" itemprop="jobTitle">
+                                                                    Bachelor</p></div>
+                                                            <ul class="thim-author-social">
+                                                                <li>
+                                                                    <a href="http://example.com/eduma-the-best-lms-wordpress/theme"
+                                                                       class="facebook"><i
+                                                                                class="fa fa-facebook"></i></a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="http://example.com/eduma-the-best-lms-wordpress/theme"
+                                                                       class="twitter"><i
+                                                                                class="fa fa-twitter"></i></a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="http://example.com/eduma-the-best-lms-wordpress/theme"
+                                                                       class="google-plus"><i
+                                                                                class="fa fa-google-plus"></i></a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="http://example.com/eduma-the-best-lms-wordpress/theme"
+                                                                       class="linkedin"><i
+                                                                                class="fa fa-linkedin"></i></a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="http://example.com/eduma-the-best-lms-wordpress/theme"
+                                                                       class="youtube"><i
+                                                                                class="fa fa-youtube"></i></a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="author-description"
+                                                             itemprop="description"><p>After working as a
+                                                                software developer and contractor for over 8
+                                                                years for a whole bunch of companies including
+                                                                ABX, Proit, SACC and AT&amp;T in the US, He
+                                                                decided to work full-time as a private software
+                                                                trainer. He received his Ph.D. in Computer
+                                                                Science from the University of Rochester in
+                                                                2001. &#034;What I teach varies from beginner to
+                                                                advanced and from what I have seen, anybody can
+                                                                learn and grow from my courses&#034;.</p></div>
+                                                    </div>
+                                                </div>
+                                                <div class="thim-about-author thim-co-instructor"
+                                                     itemprop="contributor" itemscope
+                                                     itemtype="http://schema.org/Person">
+                                                    <div class="author-wrapper">
+                                                        <div class="author-avatar"><img
+                                                                    alt="Admin bar avatar"
+                                                                    src="https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/learn-press-profile/1/21232f297a57a5a743894a0e4a801fc3.jpg"
+                                                                    class="avatar avatar-110 photo" height="110"
+                                                                    width="110"/></div>
+                                                        <div class="author-bio">
+                                                            <div class="author-top"><a itemprop="url"
+                                                                                       class="name"
+                                                                                       href="https://educationwp.thimpress.com/profile/admin/">
+                                                                    <span itemprop="name">Hinata Hyuga</span>
+                                                                </a>
+                                                                <p class="job" itemprop="jobTitle">Web
+                                                                    Developer</p></div>
+                                                            <ul class="thim-author-social">
+                                                                <li>
+                                                                    <a href="http://example.com/eduma-the-best-lms-wordpress/theme"
+                                                                       class="facebook"><i
+                                                                                class="fa fa-facebook"></i></a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="http://example.com/eduma-the-best-lms-wordpress/theme"
+                                                                       class="twitter"><i
+                                                                                class="fa fa-twitter"></i></a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="http://example.com/eduma-the-best-lms-wordpress/theme"
+                                                                       class="google-plus"><i
+                                                                                class="fa fa-google-plus"></i></a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="http://example.com/eduma-the-best-lms-wordpress/theme"
+                                                                       class="linkedin"><i
+                                                                                class="fa fa-linkedin"></i></a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="http://example.com/eduma-the-best-lms-wordpress/theme"
+                                                                       class="youtube"><i
+                                                                                class="fa fa-youtube"></i></a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="author-description"
+                                                             itemprop="description"><p>Hello, I’m a spider
+                                                                man, real spider man you alway see in your TV.
+                                                                Surprise, i’m also a photographer and a
+                                                                photography teacher. You know, in my films, i
+                                                                alway take a lot of photos of me_spider man.</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane " id="tab-course-review">
+                                                <div class="course-rating"><h3>Reviews</h3>
+                                                    <div class="average-rating" itemprop="aggregateRating"
+                                                         itemscope=""
+                                                         itemtype="http://schema.org/AggregateRating"><p
+                                                                class="rating-title">Average Rating</p>
+                                                        <div class="rating-box">
+                                                            <div class="average-value"
+                                                                 itemprop="ratingValue">5
+                                                            </div>
+                                                            <div class="review-star">
+                                                                <div class="review-stars-rated">
+                                                                    <ul class="review-stars">
+                                                                        <li><span
+                                                                                    class="fa fa-star-o"></span>
+                                                                        </li>
+                                                                        <li><span
+                                                                                    class="fa fa-star-o"></span>
+                                                                        </li>
+                                                                        <li><span
+                                                                                    class="fa fa-star-o"></span>
+                                                                        </li>
+                                                                        <li><span
+                                                                                    class="fa fa-star-o"></span>
+                                                                        </li>
+                                                                        <li><span
+                                                                                    class="fa fa-star-o"></span>
+                                                                        </li>
+                                                                    </ul>
+                                                                    <ul class="review-stars filled"
+                                                                        style="width: 100%">
+                                                                        <li><span class="fa fa-star"></span>
+                                                                        </li>
+                                                                        <li><span class="fa fa-star"></span>
+                                                                        </li>
+                                                                        <li><span class="fa fa-star"></span>
+                                                                        </li>
+                                                                        <li><span class="fa fa-star"></span>
+                                                                        </li>
+                                                                        <li><span class="fa fa-star"></span>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <div class="review-amount"
+                                                                 itemprop="ratingCount"> 3 ratings
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="detailed-rating"><p class="rating-title">
+                                                            Detailed Rating</p>
+                                                        <div class="rating-box">
+                                                            <div class="detailed-rating">
+                                                                <div class="stars">
+                                                                    <div class="key">5 stars</div>
+                                                                    <div class="bar">
+                                                                        <div class="full_bar">
+                                                                            <div style="width: 100%"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="value">3</div>
+                                                                </div>
+                                                                <div class="stars">
+                                                                    <div class="key">4 stars</div>
+                                                                    <div class="bar">
+                                                                        <div class="full_bar">
+                                                                            <div style="width: 0%"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="value">0</div>
+                                                                </div>
+                                                                <div class="stars">
+                                                                    <div class="key">3 stars</div>
+                                                                    <div class="bar">
+                                                                        <div class="full_bar">
+                                                                            <div style="width: 0%"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="value">0</div>
+                                                                </div>
+                                                                <div class="stars">
+                                                                    <div class="key">2 stars</div>
+                                                                    <div class="bar">
+                                                                        <div class="full_bar">
+                                                                            <div style="width: 0%"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="value">0</div>
+                                                                </div>
+                                                                <div class="stars">
+                                                                    <div class="key">1 star</div>
+                                                                    <div class="bar">
+                                                                        <div class="full_bar">
+                                                                            <div style="width: 0%"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="value">0</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="course-review">
+                                                    <div id="course-reviews" class="content-review">
+                                                        <ul class="course-reviews-list">
+                                                            <li>
+                                                                <div class="review-container"
+                                                                     itemprop="review" itemscope
+                                                                     itemtype="http://schema.org/Review">
+                                                                    <div class="review-author"><img
+                                                                                alt="Admin bar avatar"
+                                                                                src="https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/learn-press-profile/12/athony1-thumb.jpg"
+                                                                                class="avatar avatar-70 photo"
+                                                                                height="70" width="70"/></div>
+                                                                    <div class="review-text"><h4
+                                                                                class="author-name"
+                                                                                itemprop="author">Anthony</h4>
+                                                                        <div class="review-star">
+                                                                            <div class="review-stars-rated">
+                                                                                <ul class="review-stars">
+                                                                                    <li><span
+                                                                                                class="fa fa-star-o"></span>
+                                                                                    </li>
+                                                                                    <li><span
+                                                                                                class="fa fa-star-o"></span>
+                                                                                    </li>
+                                                                                    <li><span
+                                                                                                class="fa fa-star-o"></span>
+                                                                                    </li>
+                                                                                    <li><span
+                                                                                                class="fa fa-star-o"></span>
+                                                                                    </li>
+                                                                                    <li><span
+                                                                                                class="fa fa-star-o"></span>
+                                                                                    </li>
+                                                                                </ul>
+                                                                                <ul class="review-stars filled"
+                                                                                    style="width: 100%">
+                                                                                    <li><span
+                                                                                                class="fa fa-star"></span>
+                                                                                    </li>
+                                                                                    <li><span
+                                                                                                class="fa fa-star"></span>
+                                                                                    </li>
+                                                                                    <li><span
+                                                                                                class="fa fa-star"></span>
+                                                                                    </li>
+                                                                                    <li><span
+                                                                                                class="fa fa-star"></span>
+                                                                                    </li>
+                                                                                    <li><span
+                                                                                                class="fa fa-star"></span>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <p class="review-title">Beautiful
+                                                                            theme - Awesome plugin</p>
+                                                                        <div class="description"
+                                                                             itemprop="reviewBody"><p>5
+                                                                                stars for this theme too.
+                                                                                Education WP theme brings the
+                                                                                best LMS experience ever with
+                                                                                super friendly UX and complete
+                                                                                eLearning features. Really
+                                                                                satisfied.</p></div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="review-container"
+                                                                     itemprop="review" itemscope
+                                                                     itemtype="http://schema.org/Review">
+                                                                    <div class="review-author"><img
+                                                                                alt="Admin bar avatar"
+                                                                                src="https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/learn-press-profile/1/21232f297a57a5a743894a0e4a801fc3.jpg"
+                                                                                class="avatar avatar-70 photo"
+                                                                                height="70" width="70"/></div>
+                                                                    <div class="review-text"><h4
+                                                                                class="author-name"
+                                                                                itemprop="author">Hinata
+                                                                            Hyuga</h4>
+                                                                        <div class="review-star">
+                                                                            <div class="review-stars-rated">
+                                                                                <ul class="review-stars">
+                                                                                    <li><span
+                                                                                                class="fa fa-star-o"></span>
+                                                                                    </li>
+                                                                                    <li><span
+                                                                                                class="fa fa-star-o"></span>
+                                                                                    </li>
+                                                                                    <li><span
+                                                                                                class="fa fa-star-o"></span>
+                                                                                    </li>
+                                                                                    <li><span
+                                                                                                class="fa fa-star-o"></span>
+                                                                                    </li>
+                                                                                    <li><span
+                                                                                                class="fa fa-star-o"></span>
+                                                                                    </li>
+                                                                                </ul>
+                                                                                <ul class="review-stars filled"
+                                                                                    style="width: 100%">
+                                                                                    <li><span
+                                                                                                class="fa fa-star"></span>
+                                                                                    </li>
+                                                                                    <li><span
+                                                                                                class="fa fa-star"></span>
+                                                                                    </li>
+                                                                                    <li><span
+                                                                                                class="fa fa-star"></span>
+                                                                                    </li>
+                                                                                    <li><span
+                                                                                                class="fa fa-star"></span>
+                                                                                    </li>
+                                                                                    <li><span
+                                                                                                class="fa fa-star"></span>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <p class="review-title">
+                                                                            Incredible</p>
+                                                                        <div class="description"
+                                                                             itemprop="reviewBody"><p>
+                                                                                LearnPress WordPress LMS Plugin
+                                                                                designed with flexible &amp;
+                                                                                scalable eLearning system in
+                                                                                mind. This WordPress eLearning
+                                                                                Plugin comes up with 10+ addons
+                                                                                (and counting) to extend the
+                                                                                ability of this WordPress
+                                                                                Learning Management System. This
+                                                                                is incredible.</p></div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="review-container"
+                                                                     itemprop="review" itemscope
+                                                                     itemtype="http://schema.org/Review">
+                                                                    <div class="review-author"><img
+                                                                                alt="Admin bar avatar"
+                                                                                src="https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/learn-press-profile/7/9c081444f942cc8fe0ddf55631b584e2.jpg"
+                                                                                class="avatar avatar-70 photo"
+                                                                                height="70" width="70"/></div>
+                                                                    <div class="review-text"><h4
+                                                                                class="author-name"
+                                                                                itemprop="author">Keny
+                                                                            White</h4>
+                                                                        <div class="review-star">
+                                                                            <div class="review-stars-rated">
+                                                                                <ul class="review-stars">
+                                                                                    <li><span
+                                                                                                class="fa fa-star-o"></span>
+                                                                                    </li>
+                                                                                    <li><span
+                                                                                                class="fa fa-star-o"></span>
+                                                                                    </li>
+                                                                                    <li><span
+                                                                                                class="fa fa-star-o"></span>
+                                                                                    </li>
+                                                                                    <li><span
+                                                                                                class="fa fa-star-o"></span>
+                                                                                    </li>
+                                                                                    <li><span
+                                                                                                class="fa fa-star-o"></span>
+                                                                                    </li>
+                                                                                </ul>
+                                                                                <ul class="review-stars filled"
+                                                                                    style="width: 100%">
+                                                                                    <li><span
+                                                                                                class="fa fa-star"></span>
+                                                                                    </li>
+                                                                                    <li><span
+                                                                                                class="fa fa-star"></span>
+                                                                                    </li>
+                                                                                    <li><span
+                                                                                                class="fa fa-star"></span>
+                                                                                    </li>
+                                                                                    <li><span
+                                                                                                class="fa fa-star"></span>
+                                                                                    </li>
+                                                                                    <li><span
+                                                                                                class="fa fa-star"></span>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+                                                                        <p class="review-title">The best LMS
+                                                                            WordPress plugin</p>
+                                                                        <div class="description"
+                                                                             itemprop="reviewBody"><p>I
+                                                                                really love the course editor in
+                                                                                LearnPress. It is never easier
+                                                                                when creating courses, lessons,
+                                                                                quizzes with this one.
+                                                                                It&#039;s the most useful LMS
+                                                                                WordPress plugin I have ever
+                                                                                used. Thank a lot!
+                                                                                Testing quiz is funny, I like
+                                                                                the sorting choice question type
+                                                                                most.</p></div>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="thim-course-menu-landing">
+                                        <div class="container">
+                                            <ul class="thim-course-landing-tab">
+                                                <li><a href="#tab-course-description">Descripción</a></li>
+                                                <li><a href="#tab-course-curriculum">Temario</a></li>
+                                                <li><a href="#tab-course-instructor">Instructor</a></li>
+                                                <li><a href="#tab-course-review">Comentarios</a></li>
+                                            </ul>
+                                            <div class="thim-course-landing-button">
+                                                <div class="course-price" itemprop="offers" itemscope
+                                                     itemtype="http://schema.org/Offer">
+                                                    <div class="value <?=$curso->getPrice()=='0'?'free-course':''?>" itemprop="price"> $<?=$curso->getPrice()?>.00
+                                                    </div>
+                                                    <meta itemprop="priceCurrency" content="&#36;"/>
+                                                </div>
+                                                <form name="purchase-course"
+                                                      class="purchase-course form-purchase-course"
+                                                      method="post" enctype="multipart/form-data">
+                                                    <button class="button purchase-button thim-enroll-course-button">
+                                                        Inscribirse
+                                                    </button>
+                                                    <input type="hidden" name="single-purchase"
+                                                           value="yes"/> <input type="hidden"
+                                                                                name="add-to-cart"
+                                                                                value="5428"/> <input
+                                                            type="hidden" name="purchase-course" value="5428"/>
+                                                    <input type="hidden" name="redirect_to" value=""/>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="thim-ralated-course  "><h3 class="related-title"> You May Like</h3>
+                                <div class="thim-course-grid">
+                                    <div class="thim-carousel-wrapper" data-visible="3" data-itemtablet="2"
+                                         data-itemmobile="1" data-pagination="1">
+                                        <article class="lpr_course">
+                                            <div class="course-item">
+                                                <div class="course-thumbnail"><a class="thumb"
+                                                                                 href="https://educationwp.thimpress.com/courses/become-a-php-master-and-make-money-fast/">
+                                                        <img src="https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/2015/06/course-2-450x450.jpg"
+                                                             alt="Become a PHP Master and Make Money"
+                                                             title="course-2" width="450" height="450"> </a> <a
+                                                            class="course-readmore"
+                                                            href="https://educationwp.thimpress.com/courses/become-a-php-master-and-make-money-fast/">Read
+                                                        More</a></div>
+                                                <div class="thim-course-content">
+                                                    <div class="course-author"><img alt="Admin bar avatar"
+                                                                                    src="https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/learn-press-profile/7/9c081444f942cc8fe0ddf55631b584e2.jpg"
+                                                                                    class="avatar avatar-40 photo"
+                                                                                    height="40" width="40"/>
+                                                        <div class="author-contain">
+                                                            <div class="value"><a
+                                                                        href="https://educationwp.thimpress.com/profile/keny/">
+                                                                    Keny White </a></div>
+                                                        </div>
+                                                    </div>
+                                                    <h2 class="course-title"><a rel="bookmark"
+                                                                                href="https://educationwp.thimpress.com/courses/become-a-php-master-and-make-money-fast/">Become
+                                                            a PHP Master and Make Money</a></h2>
+                                                    <div class="course-meta">
+                                                        <div class="course-students"><label>Students</label>
+                                                            <div class="value"><i class="fa fa-group"></i>
+                                                                28
+                                                            </div>
+                                                        </div>
+                                                        <div class="course-comments-count">
+                                                            <div class="value"><i class="fa fa-comment"></i>1
+                                                            </div>
+                                                        </div>
+                                                        <div class="course-price" itemprop="offers"
+                                                             itemscope itemtype="http://schema.org/Offer">
+                                                            <div class="value" itemprop="price"><span
+                                                                        class="course-origin-price">&#36;80.00</span>
+                                                                &#36;69.00
+                                                            </div>
+                                                            <meta itemprop="priceCurrency" content="&#36;"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                        <article class="lpr_course">
+                                            <div class="course-item">
+                                                <div class="course-thumbnail"><a class="thumb"
+                                                                                 href="https://educationwp.thimpress.com/courses/learning-jquery-mobile-for-beginners/">
+                                                        <img src="https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/2015/06/course-5-450x450.jpg"
+                                                             alt="Learning jQuery Mobile for Beginners"
+                                                             title="course-5" width="450" height="450"> </a> <a
+                                                            class="course-readmore"
+                                                            href="https://educationwp.thimpress.com/courses/learning-jquery-mobile-for-beginners/">Read
+                                                        More</a></div>
+                                                <div class="thim-course-content">
+                                                    <div class="course-author"><img alt="Admin bar avatar"
+                                                                                    src="https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/learn-press-profile/1/21232f297a57a5a743894a0e4a801fc3.jpg"
+                                                                                    class="avatar avatar-40 photo"
+                                                                                    height="40" width="40"/>
+                                                        <div class="author-contain">
+                                                            <div class="value"><a
+                                                                        href="https://educationwp.thimpress.com/profile/admin/">
+                                                                    Hinata Hyuga </a></div>
+                                                        </div>
+                                                    </div>
+                                                    <h2 class="course-title"><a rel="bookmark"
+                                                                                href="https://educationwp.thimpress.com/courses/learning-jquery-mobile-for-beginners/">Learning
+                                                            jQuery Mobile for Beginners</a></h2>
+                                                    <div class="course-meta">
+                                                        <div class="course-students"><label>Students</label>
+                                                            <div class="value"><i class="fa fa-group"></i>
+                                                                32
+                                                            </div>
+                                                        </div>
+                                                        <div class="course-comments-count">
+                                                            <div class="value"><i class="fa fa-comment"></i>1
+                                                            </div>
+                                                        </div>
+                                                        <div class="course-price" itemprop="offers"
+                                                             itemscope itemtype="http://schema.org/Offer">
+                                                            <div class="value" itemprop="price">
+                                                                &#36;30.00
+                                                            </div>
+                                                            <meta itemprop="priceCurrency" content="&#36;"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                        <article class="lpr_course">
+                                            <div class="course-item">
+                                                <div class="course-thumbnail"><a class="thumb"
+                                                                                 href="https://educationwp.thimpress.com/courses/html5css3-essentials-in-4-hours/">
+                                                        <img src="https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/2015/06/course-6-450x450.jpg"
+                                                             alt="HTML5/CSS3 Essentials in 4-Hours"
+                                                             title="course-6" width="450" height="450"> </a> <a
+                                                            class="course-readmore"
+                                                            href="https://educationwp.thimpress.com/courses/html5css3-essentials-in-4-hours/">Read
+                                                        More</a></div>
+                                                <div class="thim-course-content">
+                                                    <div class="course-author"><img alt="Admin bar avatar"
+                                                                                    src="https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/learn-press-profile/7/9c081444f942cc8fe0ddf55631b584e2.jpg"
+                                                                                    class="avatar avatar-40 photo"
+                                                                                    height="40" width="40"/>
+                                                        <div class="author-contain">
+                                                            <div class="value"><a
+                                                                        href="https://educationwp.thimpress.com/profile/keny/">
+                                                                    Keny White </a></div>
+                                                        </div>
+                                                    </div>
+                                                    <h2 class="course-title"><a rel="bookmark"
+                                                                                href="https://educationwp.thimpress.com/courses/html5css3-essentials-in-4-hours/">HTML5/CSS3
+                                                            Essentials in 4-Hours</a></h2>
+                                                    <div class="course-meta">
+                                                        <div class="course-students"><label>Students</label>
+                                                            <div class="value"><i class="fa fa-group"></i>
+                                                                26
+                                                            </div>
+                                                        </div>
+                                                        <div class="course-comments-count">
+                                                            <div class="value"><i class="fa fa-comment"></i>1
+                                                            </div>
+                                                        </div>
+                                                        <div class="course-price" itemprop="offers"
+                                                             itemscope itemtype="http://schema.org/Offer">
+                                                            <div class="value" itemprop="price">
+                                                                &#36;36.00
+                                                            </div>
+                                                            <meta itemprop="priceCurrency" content="&#36;"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                        <article class="lpr_course">
+                                            <div class="course-item">
+                                                <div class="course-thumbnail"><a class="thumb"
+                                                                                 href="https://educationwp.thimpress.com/courses/the-art-of-black-and-white-photography/">
+                                                        <img src="https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/2015/12/course-10-450x450.jpg"
+                                                             alt="The Art of Black and White Photography"
+                                                             title="course-10" width="450" height="450"> </a> <a
+                                                            class="course-readmore"
+                                                            href="https://educationwp.thimpress.com/courses/the-art-of-black-and-white-photography/">Read
+                                                        More</a></div>
+                                                <div class="thim-course-content">
+                                                    <div class="course-author"><img alt="Admin bar avatar"
+                                                                                    src="https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/learn-press-profile/1/21232f297a57a5a743894a0e4a801fc3.jpg"
+                                                                                    class="avatar avatar-40 photo"
+                                                                                    height="40" width="40"/>
+                                                        <div class="author-contain">
+                                                            <div class="value"><a
+                                                                        href="https://educationwp.thimpress.com/profile/admin/">
+                                                                    Hinata Hyuga </a></div>
+                                                        </div>
+                                                    </div>
+                                                    <h2 class="course-title"><a rel="bookmark"
+                                                                                href="https://educationwp.thimpress.com/courses/the-art-of-black-and-white-photography/">The
+                                                            Art of Black and White Photography</a></h2>
+                                                    <div class="course-meta">
+                                                        <div class="course-students"><label>Students</label>
+                                                            <div class="value"><i class="fa fa-group"></i>
+                                                                27
+                                                            </div>
+                                                        </div>
+                                                        <div class="course-comments-count">
+                                                            <div class="value"><i class="fa fa-comment"></i>1
+                                                            </div>
+                                                        </div>
+                                                        <div class="course-price" itemprop="offers"
+                                                             itemscope itemtype="http://schema.org/Offer">
+                                                            <div class="value" itemprop="price">
+                                                                &#36;55.00
+                                                            </div>
+                                                            <meta itemprop="priceCurrency" content="&#36;"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                        <article class="lpr_course">
+                                            <div class="course-item">
+                                                <div class="course-thumbnail"><a class="thumb"
+                                                                                 href="https://educationwp.thimpress.com/courses/introduction-to-networking-for-beginners/">
+                                                        <img src="https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/2015/12/course-16-450x450.jpg"
+                                                             alt="Introduction to networking for beginners"
+                                                             title="course-16" width="450" height="450"> </a> <a
+                                                            class="course-readmore"
+                                                            href="https://educationwp.thimpress.com/courses/introduction-to-networking-for-beginners/">Read
+                                                        More</a></div>
+                                                <div class="thim-course-content">
+                                                    <div class="course-author"><img alt="Admin bar avatar"
+                                                                                    src="https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/learn-press-profile/7/9c081444f942cc8fe0ddf55631b584e2.jpg"
+                                                                                    class="avatar avatar-40 photo"
+                                                                                    height="40" width="40"/>
+                                                        <div class="author-contain">
+                                                            <div class="value"><a
+                                                                        href="https://educationwp.thimpress.com/profile/keny/">
+                                                                    Keny White </a></div>
+                                                        </div>
+                                                    </div>
+                                                    <h2 class="course-title"><a rel="bookmark"
+                                                                                href="https://educationwp.thimpress.com/courses/introduction-to-networking-for-beginners/">Introduction
+                                                            to networking for beginners</a></h2>
+                                                    <div class="course-meta">
+                                                        <div class="course-students"><label>Students</label>
+                                                            <div class="value"><i class="fa fa-group"></i>
+                                                                10
+                                                            </div>
+                                                        </div>
+                                                        <div class="course-comments-count">
+                                                            <div class="value"><i class="fa fa-comment"></i>0
+                                                            </div>
+                                                        </div>
+                                                        <div class="course-price" itemprop="offers"
+                                                             itemscope itemtype="http://schema.org/Offer">
+                                                            <div class="value" itemprop="price">
+                                                                &#36;50.00
+                                                            </div>
+                                                            <meta itemprop="priceCurrency" content="&#36;"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </main>
+            <div id="sidebar" class="widget-area col-sm-3 sticky-sidebar" role="complementary">
+                <aside id="course-categories-3" class="widget widget_course-categories">
+                    <div class="thim-widget-course-categories thim-widget-course-categories-base"><h4
+                                class="widget-title">All Courses</h4>
+                        <ul>
+                            <li>
+                                <a href="https://educationwp.thimpress.com/course-category/backend/">Backend</a>
+                            </li>
+                            <li><a href="https://educationwp.thimpress.com/course-category/css/">CSS</a>
+                            </li>
+                            <li><a href="https://educationwp.thimpress.com/course-category/frontend/">Frontend</a>
+                            </li>
+                            <li>
+                                <a href="https://educationwp.thimpress.com/course-category/general/">General</a>
+                            </li>
+                            <li><a href="https://educationwp.thimpress.com/course-category/it-software/">IT
+                                    &amp; Software</a></li>
+                            <li><a href="https://educationwp.thimpress.com/course-category/photography/">Photography</a>
+                            </li>
+                            <li>
+                                <a href="https://educationwp.thimpress.com/course-category/programming-language/">Programming
+                                    Language</a></li>
+                            <li><a href="https://educationwp.thimpress.com/course-category/technology/">Technology</a>
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+                <aside id="courses-7" class="widget widget_courses">
+                    <div class="thim-widget-courses thim-widget-courses-base"><h4 class="widget-title">
+                            Latest Courses</h4>
+                        <div class="thim-course-list-sidebar">
+                            <div class="lpr_course has-post-thumbnail">
+                                <div class="course-thumbnail"><img
+                                            src="https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/2015/11/course-4-150x150.jpg"
+                                            alt="Introduction LearnPress &#8211; LMS plugin"/></div>
+                                <div class="thim-course-content"><h3 class="course-title"><a
+                                                href="https://educationwp.thimpress.com/courses/learnpress-101/">
+                                            Introduction LearnPress &#8211; LMS plugin</a></h3>
+                                    <div class="course-price" itemprop="offers" itemscope
+                                         itemtype="http://schema.org/Offer">
+                                        <div class="value <?=$curso->getPrice()=='0'?'free-course':''?>" itemprop="price"> $<?=$curso->getPrice()?>.00</div>
+                                        <meta itemprop="priceCurrency" content="&#36;"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lpr_course has-post-thumbnail">
+                                <div class="course-thumbnail"><img
+                                            src="https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/2015/06/course-2-150x150.jpg"
+                                            alt="Become a PHP Master and Make Money"/></div>
+                                <div class="thim-course-content"><h3 class="course-title"><a
+                                                href="https://educationwp.thimpress.com/courses/become-a-php-master-and-make-money-fast/">
+                                            Become a PHP Master and Make Money</a></h3>
+                                    <div class="course-price" itemprop="offers" itemscope
+                                         itemtype="http://schema.org/Offer">
+                                        <div class="value has-origin" itemprop="price"><span
+                                                    class="course-origin-price">&#36;80.00</span> &#36;69.00
+                                        </div>
+                                        <meta itemprop="priceCurrency" content="&#36;"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lpr_course has-post-thumbnail">
+                                <div class="course-thumbnail"><img
+                                            src="https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/2015/06/course-5-150x150.jpg"
+                                            alt="Learning jQuery Mobile for Beginners"/></div>
+                                <div class="thim-course-content"><h3 class="course-title"><a
+                                                href="https://educationwp.thimpress.com/courses/learning-jquery-mobile-for-beginners/">
+                                            Learning jQuery Mobile for Beginners</a></h3>
+                                    <div class="course-price" itemprop="offers" itemscope
+                                         itemtype="http://schema.org/Offer">
+                                        <div class="value" itemprop="price"> &#36;30.00</div>
+                                        <meta itemprop="priceCurrency" content="&#36;"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+                <aside id="single-images-7" class="widget widget_single-images">
+                    <div class="thim-widget-single-images thim-widget-single-images-base">
+                        <div class="single-image text-left"><a target=" _self" href="#"><img
+                                        src="https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/2015/12/ad.jpg"
+                                        width="330" height="359" alt=""/></a></div>
+                    </div>
+                </aside>
+                <aside id="list-post-9" class="widget widget_list-post">
+                    <div class="thim-widget-list-post thim-widget-list-post-base"><h4 class="widget-title">
+                            Latest Posts</h4>
+                        <div class="thim-list-posts sidebar">
+                            <div class="item-post has_thumb post-3698 post type-post status-publish format-standard has-post-thumbnail hentry category-blog tag-course pmpro-has-access">
+                                <div class="article-image"><img width="150" height="150"
+                                                                src="https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/2016/01/blog-8-150x150.jpg"
+                                                                class="attachment-thumbnail size-thumbnail wp-post-image"
+                                                                alt=""
+                                                                srcset="https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/2016/01/blog-8-150x150.jpg 150w, https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/2016/01/blog-8-180x180.jpg 180w, https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/2016/01/blog-8-300x300.jpg 300w"
+                                                                sizes="(max-width: 150px) 100vw, 150px"/>
+                                </div>
+                                <div class="article-title-wrapper"><h5><a
+                                                href="https://educationwp.thimpress.com/online-learning-glossary/"
+                                                class="article-title">Online Learning Glossary</a></h5>
+                                    <div class="article-date"><span class="day">20</span><span
+                                                class="month">Jan</span><span class="year">2016</span></div>
+                                </div>
+                            </div>
+                            <div class="item-post has_thumb post-3699 post type-post status-publish format-standard has-post-thumbnail hentry category-blog tag-designer tag-seo pmpro-has-access">
+                                <div class="article-image"><img width="150" height="150"
+                                                                src="https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/2016/01/blog-5-150x150.jpg"
+                                                                class="attachment-thumbnail size-thumbnail wp-post-image"
+                                                                alt=""
+                                                                srcset="https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/2016/01/blog-5-150x150.jpg 150w, https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/2016/01/blog-5-180x180.jpg 180w, https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/2016/01/blog-5-300x300.jpg 300w"
+                                                                sizes="(max-width: 150px) 100vw, 150px"/>
+                                </div>
+                                <div class="article-title-wrapper"><h5><a
+                                                href="https://educationwp.thimpress.com/tips-to-succeed-in-an-online-course/"
+                                                class="article-title">Tips to Succeed in an Online Course</a></h5>
+                                    <div class="article-date"><span class="day">20</span><span
+                                                class="month">Jan</span><span class="year">2016</span></div>
+                                </div>
+                            </div>
+                            <div class="item-post has_thumb post-71 post type-post status-publish format-standard has-post-thumbnail hentry category-blog tag-course tag-thimpress tag-wordpress pmpro-has-access">
+                                <div class="article-image"><img width="150" height="150"
+                                                                src="https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/2015/10/blog-3-150x150.jpg"
+                                                                class="attachment-thumbnail size-thumbnail wp-post-image"
+                                                                alt=""
+                                                                srcset="https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/2015/10/blog-3-150x150.jpg 150w, https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/2015/10/blog-3-180x180.jpg 180w, https://3ek5k1tux0822q3g83e30fye-wpengine.netdna-ssl.com/wp-content/uploads/2015/10/blog-3-300x300.jpg 300w"
+                                                                sizes="(max-width: 150px) 100vw, 150px"/>
+                                </div>
+                                <div class="article-title-wrapper"><h5><a
+                                                href="https://educationwp.thimpress.com/introducing-dr-deniz-zeynep-2/"
+                                                class="article-title">Introducing: Dr. Deniz Zeynep</a></h5>
+                                    <div class="article-date"><span class="day">20</span><span
+                                                class="month">Oct</span><span class="year">2015</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</div>

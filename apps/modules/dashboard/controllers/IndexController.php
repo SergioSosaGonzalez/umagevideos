@@ -13,6 +13,7 @@ require dirname(dirname(dirname(dirname(__FILE__))))."/library/PHPMailer/PHPMail
 
 class IndexController extends ControllerBase{
     public function indexAction(){
+
     }
 
     public function validateurlAction(){
@@ -56,6 +57,7 @@ class IndexController extends ControllerBase{
                 endforeach;
               $cnv->delete();
             endforeach;
+            unlink('./front/courses_images/'.$cursos->getMainImage());
             $cursos->delete();
             $this->response(array("message"=>"correcto",
                                   "id"=>$request->getPost('id_courses_delete'))

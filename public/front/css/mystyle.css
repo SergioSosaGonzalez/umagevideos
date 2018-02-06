@@ -3,6 +3,9 @@
   position: absolute;
   left: -9999px
 }
+.site-header .navbar-nav>li{
+  margin-right: 50px;
+}
 #pgc-12-0-0, #pgc-12-2-0, #pgc-12-4-0, #pgc-12-5-0, #pgc-12-6-0, #pgc-12-7-0 {
   width: 100%;
   width: calc(100% - (0 * 30px))

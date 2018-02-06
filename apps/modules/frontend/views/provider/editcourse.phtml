@@ -25,13 +25,39 @@
                     </div>
                     <br>
                     <div class="row" style="text-align: center">
-                        <h2 class="col-md-3">Descripción:</h2>
+                        <h2 class="col-md-3">Resumen:</h2>
                         <div class="col-md-9">
-                         <textarea class="form-control ckeditor" name="description" ><?=$course->getDescription()?></textarea>
-                            <textarea style="display: none" name="description2" id="description2"></textarea>
+                         <textarea class="form-control ckeditor" name="sumary" ><?=$course->getSummary()?></textarea>
+                            <textarea style="display: none" name="sumary2" id="sumary2"></textarea>
                         </div>
                     </div>
-                    <br>
+                        <br>
+                        <div class="row" style="text-align: center">
+                            <h2 class="col-md-3">Video de introducción:</h2>
+                            <div class="col-md-9">
+                                <div id="courseVideo" class="dropzone">
+                                    <div class="dz-default dz-message">
+                                        <h2 style="text-align:center;position: relative;top:-30px;" id="content-video">
+                                            <i class="fa fa-cloud-upload" style="font-size: 88px;"></i><br>
+                                            Arrastra un vídeo<br><i style="font-size: 14px">o haz click para seleccionar manualmente</i>
+                                        </h2>
+                                        <input type="hidden" value="<?=$course->getIntroductionVideo()?>" name="video_introduction" id="video_introduction">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+                        <div class="row" style="text-align: center">
+                            <h2 class="col-md-3">Descripción:</h2>
+                            <div class="col-md-9">
+                                <textarea class="form-control ckeditor" name="description" ><?=$course->getDescription()?></textarea>
+                                <textarea style="display: none" name="description2" id="description2"></textarea>
+                            </div>
+                        </div>
+
+                        <br>
                     <div class="row" style="text-align: center">
                         <h2 class="col-md-3">Imagen:</h2>
                           <div class="col-md-9">
@@ -48,6 +74,41 @@
                             </div>
                     </div>
                     <br>
+                    <div class="row" style="text-align: center">
+                        <label class="col-md-3">¿Que se aprendera?:</label>
+                        <div class="col-md-3">
+                           <span>En esta parte se pondra todo lo que la persona aprendera:</span>
+                           <input id="aprendizaje_curso" type="text" class="form-control" style="text-align: center"><a id="agregar_aprendizaje" class="fa fa-arrow-circle-o-right"></a>
+                        </div>
+                        <div class="col-md-6" id="learning">
+                            <?php foreach ($learning as $key): ?>
+                            <div id="learning_add_<?=$key->getLearid()?>">
+                                <li><?=$key->getName()?> <a class="fa fa-times" onclick="deletesLearnRequire(<?=$key->getLearid()?>,'learning_add')"></a></li>
+                                <input type="hidden" value='<?=$key->getName()?>' name="aprendizaje[]">
+                            </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="row" style="text-align: center">
+                        <label class="col-md-3">Requisitos:</label>
+                        <div class="col-md-3">
+                            <span>En esta parte se pondran los requisitos del curso:</span>
+                            <input id="requisitos_curso" type="text" class="form-control" style="text-align: center"><a id="agregar_requisito" class="fa fa-arrow-circle-o-right"></a>
+                        </div>
+                        <div class="col-md-6" id="requirements">
+                           <?php foreach ($requeriments as $cnv): ?>
+                            <div id="requeriment_add_<?=$cnv->getReqid()?>">
+                                <li><?=$cnv->getRequeriments()?> <a class="fa fa-times" onclick="deletesLearnRequire(<?=$cnv->getReqid()?>,'requeriment_add')"></a></li>
+                                <input type="hidden" value='<?=$cnv->getRequeriments()?>' name="requerimiento[]">
+                            </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+
+
+                        <br>
                     <div class="row" style="text-align: center">
                         <label class="col-md-3">Duración:</label>
                         <div class="col-md-3">
@@ -86,7 +147,22 @@
                           </select>
                         </div>
                     </div>
-                    <br>
+                        <br>
+                        <div class="row" style="text-align: center">
+                            <div class="col-md-3"></div>
+                            <label class="col-md-3">Lenguage:</label>
+                            <div class="col-md-3">
+                             <?php $lenguage=array("Español","Ingles","Portugues","Frances") ?>
+                                <select class="form-control"name="lenguage">
+                                    <option value="">Seleccione un lenguaje</option>
+                                    <?php foreach ($lenguage as $len): ?>
+                                    <option <?=$course->getLenguage()==$len?'selected':''?> value="<?=$len?>"><?=$len?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+
+                        <br>
                     <div class="row" style="text-align: center">
                         <div class="col-md-12">
                              <input type="submit" value="Guardar" class="wpcf7-form-control wpcf7-submit">

@@ -38,7 +38,7 @@ class Security extends Plugin {
             }
             //Resources of admin (cms)
             $userResources = array(
-                "user"=>array("index","changestatus")
+                "user"=>array("index","changestatus","courses")
             );
             foreach($userResources as $resource => $actions){
                 $acl->addResource(new \Phalcon\Acl\Resource($resource),$actions);
@@ -51,14 +51,15 @@ class Security extends Plugin {
                     "validateurl",
                     "updatecourse",
                     "newcourse","temary","newtemary","consulttemary","edittemary","deletescourses",
-                    "subtemary","newsubtemary","editsubtemary","vervideos","changestatus"),
-
+                    "subtemary","newsubtemary","editsubtemary","vervideos","changestatus","deletecourse","courses"),
+                "index"=>array("extrasoperationfront")
             );
             foreach($providerResources as $resource => $actions){
                 $acl->addResource(new \Phalcon\Acl\Resource($resource),$actions);
             };
             $publicResources = array(
-                "index"=>array('index',"logoutclient","session","authsocial","hybridauth","newclient","loginclient","uploadimage","deleteimage","validateemail"),
+                "index"=>array('index',"logoutclient","session","authsocial","hybridauth","newclient","loginclient","uploadimage","deleteimage","validateemail","courses","uploadvideo","uploadfiles"),
+
             );
             foreach($publicResources as $resource => $actions){
                 $acl->addResource(new \Phalcon\Acl\Resource($resource),$actions);
@@ -72,6 +73,8 @@ class Security extends Plugin {
                 foreach($actions as $action){
                     $acl->allow("USER",$resource,$action);
                     $acl->deny("USER","index","index");
+                    $acl->deny("USER","index","courses");
+                    $acl->deny("USER","provider","courses");
                 }
             };
             foreach($providerResources as $resource => $actions){
@@ -79,6 +82,8 @@ class Security extends Plugin {
                     $acl->allow("PROVIDER",$resource,$action);
                     $acl->deny("PROVIDER","index","index");
                     $acl->deny("PROVIDER","user","index");
+                    $acl->deny("PROVIDER","index","courses");
+                    $acl->deny("PROVIDER","user","courses");
                 }
             };
             //The acl is stored in session, APC would be useful here too

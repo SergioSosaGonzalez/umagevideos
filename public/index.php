@@ -185,6 +185,47 @@ $di->set('router', function(){
         'controller' => 'index',
         'action' => 'validateemail'
     ));
+    $router->add("/instructor/crear-curso/delete-course", array(
+        'module'=>'frontend',
+        'controller' => 'provider',
+        'action' => 'deletecourse'
+    ));
+    $router->add("/instructor/crear-curso/extra-operation", array(
+            'module'=>'frontend',
+            'controller' => 'index',
+            'action' => 'extrasoperationfront'
+        ));
+    $router->add("/cursos/([0-9-a-zA-Z\-]+)", array(
+        'module'=>'frontend',
+        'controller' => 'index',
+        'action' => 'courses',
+        'permalink'=>1
+    ));
+
+    $router->add("/instructor/cursos/([0-9-a-zA-Z\-]+)", array(
+        'module'=>'frontend',
+        'controller' => 'provider',
+        'action' => 'courses',
+        'permalink'=>1
+    ));
+
+    $router->add("/user/cursos/([0-9-a-zA-Z\-]+)", array(
+        'module'=>'frontend',
+        'controller' => 'user',
+        'action' => 'courses',
+        'permalink'=>1
+    ));
+
+    $router->add("/uploadvideo", array(
+        'module'=>'frontend',
+        'controller' => 'index',
+        'action' => 'uploadvideo'
+    ));
+    $router->add("/uploadfiles", array(
+            'module'=>'frontend',
+            'controller' => 'index',
+            'action' => 'uploadfiles'
+        ));
 
     /* inscription */
     $router->add("/dashboard", array(

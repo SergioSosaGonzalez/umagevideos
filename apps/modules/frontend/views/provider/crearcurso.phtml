@@ -16,7 +16,7 @@
                         <div class="thim-list-event">
                             <a id="crearCursoButton" class="view-all" href="#">Crear curso</a>
                             <?php foreach ($course as $key): ?>
-                            <div class="item-event post-3062 tp_event type-tp_event status-tp-event-upcoming has-post-thumbnail hentry pmpro-has-access">
+                            <div id="<?=$key->getCouid()?>" class="item-event post-3062 tp_event type-tp_event status-tp-event-upcoming has-post-thumbnail hentry pmpro-has-access">
                                 <div class="image"><img
                                         src="<?=$this->url->get('front/courses_images/'.$key->getMainImage())?>"
                                         alt="course-6" title="course-6" width="450" height="233"></div>
@@ -28,11 +28,11 @@
                                         </div>
                                         <div class="time"><i class="fa fa-pencil"></i> <a href="/instructor/crear-curso/editar-curso/<?=$key->getCouid()?>">Editar</a>
                                         </div>
-                                        <div class="time"><i class="fa fa-envelope"></i> <a onclick="sendCourse('<?=$key->getCouid()?>','<?=$key->getStatus()?>')" href="#">Enviar a revision</a>
+                                        <div class="time"><i class="fa fa-envelope"></i> <a onclick="sendCourse('revision_<?=$key->getCouid()?>','<?=$key->getStatus()?>')" href="#">Enviar a revision</a>
                                         </div>
-                                        <div class="location"><i class="fa fa-times"></i><a>Eliminar</a>
+                                        <div class="location"><i class="fa fa-times"></i><a onclick="deleteCouseFront('<?=$key->getCouid()?>')" href="#">Eliminar</a>
                                         </div>
-                                        <div class="location" id="statusCourse">
+                                        <div class="location" id="revision_<?=$key->getCouid()?>">
                                             <?php if($key->getStatus()=='INACTIVE'){
                                              ?>Estado: Inactivo <?php
                                             }elseif ($key->getStatus()=='ACTIVE'){
@@ -45,7 +45,7 @@
                                     </div>
 
                                     <div class="description">
-                                            <?=$key->getDescription()?>
+                                            <?=$key->getSummary()?>
                                         </div>
                                 </div>
                            </div>

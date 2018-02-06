@@ -1,10 +1,14 @@
 <?php
 namespace Modules\Frontend\Controllers;
+use Modules\Models\CdCategory;
 use Phalcon\Mvc\Controller;
 class ControllerBase extends Controller
 {
     public function initialize()
-    {}
+    {
+        $categorias= CdCategory::find();
+        $this->view->setVar("categorias",$categorias);
+    }
     public function suma($a,$b)
     {
     	return $a+$b;

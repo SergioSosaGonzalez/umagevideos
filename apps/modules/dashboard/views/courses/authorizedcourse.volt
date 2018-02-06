@@ -18,14 +18,17 @@
                             </tr>
                             </thead>
                             <tbody>
+                            <?php $contador =0; ?>
                             <?php foreach($cursos as $key): ?>
-                            <tr id="" >
+                            <?php $descripcionArray[]= wordwrap($key->getSummary(),50,"<br>",1);?>
+                            <tr id="<?=$key->getCouid()?>" >
                                 <td class=""><?=$key->getName()?></td>
-                                <td class=""><?=$key->getDescription()?></td>
+                                <td class=""><?=$descripcionArray[$contador]?></td>
                                 <td>
                                     <button class="btn btn-sm btn-danger" onclick="deleteCouse('<?=$key->getCouid()?>')"><span class="fa fa-times"></span></button>
                                 </td>
                             </tr>
+                            <?php $contador++; ?>
                             <?php endforeach; ?>
                             </tbody>
                         </table>

@@ -54,7 +54,7 @@
                     <td>
                      <?php foreach($consultaSubtemario as $cnv2): ?>
                         <?php $video = \Modules\Models\CdVideos::findFirst('sutemid='.$cnv2->getSutemid());?>
-                        <a onclick="changeUrl('showVideo','/front/courses_images/<?=$video->getVideo()?>')" data-toggle="modal" data-target="#myModalVideo">Ver video</a></br>
+                        <a onclick="changeUrl('showVideo','/media/videos/<?=$video->getVideo()?>')" data-toggle="modal" data-target="#myModalVideo">Ver video</a></br>
                      <?php endforeach;?>
                     </td>
                 </tr>

@@ -161,7 +161,8 @@ try {
           },
            submitHandler:function (form) {
               $('#description2').val(CKEDITOR.instances.description.getData());
-              $.ajax({
+              $('#sumary2').val(CKEDITOR.instances.sumary.getData());
+               $.ajax({
                  url:"/instructor/crear-curso/updatecourse",
                  method:"post",
                  data:$('#newCourse').serialize(),
@@ -304,9 +305,82 @@ try {
         permalink($('.cPEditSubTopic'),'subtitlePermalinkEdit',$('#editSubtopic'));
     }
 
+    if($('#my-video').length>=1){
+       var v = document.getElementById("my-video");
+       v.addEventListener("loadeddata",function (ev) {
+           var segundo=v.duration;
+           var d=new Date(segundo*1000);
+           var hora=(d.getHours()==0)?23:d.getHours()-1;
+           var minuto=(d.getMinutes()<9)?"0"+d.getMinutes():d.getMinutes();
+           var segundo = (d.getSeconds()<9)?"0"+d.getSeconds():d.getSeconds();
+           var duracion = document.getElementsByName('duration_video')[0].innerHTML= minuto+":"+segundo
+           //alert(minuto+":"+segundo);
+       },true);
+    }
+ var contador=0;
+   $('#agregar_aprendizaje').on("click",function () {
+       contador++;
+       var value= document.getElementById('aprendizaje_curso').value;
+       if(value.length<=0){
+           swal("Rellenar este campo para agregar puntos de aprendizaje");
+       }else{
 
+       $('#learning').append(
+           '<div id="learning_number_'+contador+'">'+
+           '<li>'+value+' <a class="fa fa-times" onclick="deleteLearning('+contador+')"></a></li>'+
+           '<input type="hidden" value="'+value+'" name="aprendizaje[]">' +
+           '</div>'
+       );
+       }
+   });
+   var contadorRequisito=0;
+    $('#agregar_requisito').on("click",function () {
+        contadorRequisito++;
+        var value= document.getElementById('requisitos_curso').value;
+        if(value.length<=0){
+            swal("Rellenar este campo para agregar puntos de requerimientos");
+        }else{
+
+            $('#requirements').append(
+                '<div id="requirements_number_'+contadorRequisito+'">'+
+                '<li>'+value+' <a class="fa fa-times" onclick="deleteRequirements('+contadorRequisito+')"></a></li>'+
+                '<input type="hidden" value="'+value+'" name="requerimiento[]">' +
+                '</div>'
+            );
+        }
+    });
 });
 
+function deleteLearning($counter) {
+    $('#learning_number_'+$counter).remove();
+}
+function deletesLearnRequire($id,$name) {
+     if($name=="requeriment_add"){
+        $.ajax({
+            url:"/instructor/crear-curso/extra-operation",
+            method:"post",
+            data:{idRequeriment:$id},
+            dataType:"json",
+            success:function (resp) {
+                $("#requeriment_add_"+resp.id).remove();
+            }
+        });
+     }else if($name=="learning_add"){
+         $.ajax({
+             url:"/instructor/crear-curso/extra-operation",
+             method:"post",
+             data:{idlearning:$id},
+             dataType:"json",
+             success:function (resp) {
+                 $("#learning_add_"+resp.id).remove();
+             }
+         })
+     }
+}
+function deleteRequirements($counter) {
+    $('#requirements_number_'+$counter).remove();
+
+}
 function becomeInstructor($id) {
 
     swal({
@@ -362,9 +436,13 @@ function permalink(selector,type,form){
     });
 }
 
+function putidFile($id) {
+   $('#subtemidfile').val($id);
+}
+
 function sendCourse($id,$status) {
     if($status=='INACTIVE'){
-        if($('#statusCourse').text()=='Estado:Enviado'){
+        if($('#'+$id).text()=='Estado:Enviado'){
             swal('Ya envio su temario anteriormente, espere a que se informe que ocurrira con su curso');
         }else{
              $.ajax({
@@ -374,12 +452,14 @@ function sendCourse($id,$status) {
                  dataType:"json",
                  success:function (resp) {
                      swal('Se ha enviado su informacion, se le informara si su curso sera aceptado, rechazado o se corregira');
-                     $('#statusCourse').text('Estado:Enviado');
+                     $('#'+$id).text('Estado:Enviado');
                  }
              });
         }
     }else if($status=='SEND'){
         swal('Ya envio su temario anteriormente, espere a que se informe que ocurrira con su curso');
+    }else if($status=='ACTIVE'){
+        swal('Este curso ya esta autorizado');
     }
 }
 function consulTemary($id) {
@@ -477,4 +557,30 @@ function consultsubtemary($id){
 }
 function subtemary($id) {
     window.location.replace("/instructor/crear-curso/subtemario/"+$id);
+}
+function deleteCouseFront($id) {
+    swal({
+        title: '¿Estas seguro que quieres eliminar este curso?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si,estoy seguro',
+        cancelButtonText:'Cancelar'
+    }).then((result) => {
+        if (result.value) {
+
+        $.ajax({
+            url:"/instructor/crear-curso/delete-course",
+            method:"post",
+            data:{id_courses_delete:$id},
+            dataType:"json",
+            success:function (resp) {
+                swal('Curso eliminado correctamente');
+                $('#'+resp.id).remove();
+            }
+        })
+
+    }
+})
 }
